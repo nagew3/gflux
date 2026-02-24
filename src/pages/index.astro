@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Problems from '../components/Problems.astro';
+import Solution from '../components/Solution.astro';
+import Offer from '../components/Offer.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <Problems />
+    <Solution />
+    <Offer />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // ── GSAP ScrollTrigger Animations ──
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Reveal animations for all .reveal elements
+  const revealElements = document.querySelectorAll('.reveal');
+
+  revealElements.forEach((el, i) => {
+    gsap.fromTo(el,
+      {
+        opacity: 0,
+        y: 40,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  });
+
+  // ── Impact Counter Animation ──
+  const counterEl = document.getElementById('impact-counter');
+  if (counterEl) {
+    const target = 1500;
+    const obj = { val: 0 };
+
+    gsap.to(obj, {
+      val: target,
+      duration: 2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: counterEl,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      onUpdate: () => {
+        counterEl.textContent = Math.round(obj.val).toLocaleString('fr-FR');
+      },
+    });
+  }
+
+  // ── Stagger animation for problem cards ──
+  const problemCards = document.querySelectorAll('#probleme .group');
+  if (problemCards.length) {
+    gsap.fromTo(problemCards,
+      { opacity: 0, y: 50, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#probleme',
+          start: 'top 70%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
+  // ── Stagger animation for solution feature cards ──
+  const featureCards = document.querySelectorAll('#solution .group');
+  if (featureCards.length) {
+    gsap.fromTo(featureCards,
+      { opacity: 0, y: 50, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#solution .grid',
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
+  // ── Promise banner parallax-like entrance ──
+  const promiseBanner = document.querySelector('#solution .bg-gradient-to-r');
+  if (promiseBanner) {
+    gsap.fromTo(promiseBanner,
+      { opacity: 0, y: 60, scale: 0.97 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: promiseBanner,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
+  // ── Offer card entrance ──
+  const offerCard = document.querySelector('#offre .bg-white');
+  if (offerCard) {
+    gsap.fromTo(offerCard,
+      { opacity: 0, y: 60, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: offerCard,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+</script>

@@ -1,0 +1,71 @@
+---
+const calendlyUrl = "https://calendly.com/gawen-francois/audit-perte-de-temps-gflux";
+---
+
+<section id="hero" class="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-white via-surface to-accent-blue/5 -z-10"></div>
+  <div class="absolute top-1/4 -right-32 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute bottom-1/4 -left-32 w-80 h-80 bg-deep-blue/5 rounded-full blur-3xl -z-10"></div>
+
+  <div class="container-narrow w-full">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Badge -->
+      <div class="reveal inline-flex items-center gap-2 badge bg-accent-blue/10 text-accent-blue mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse-soft"></span>
+        Offert aux 5 prochaines ESN
+      </div>
+
+      <!-- Headline -->
+      <h1 class="reveal font-display text-hero text-deep-tech mb-6 tracking-tight" style="transition-delay: 0.1s">
+        Dirigeants d'ESN : <br class="hidden sm:block"/>
+        <span class="bg-gradient-to-r from-accent-blue to-deep-blue bg-clip-text text-transparent">Éradiquez 10h</span>
+        de votre temps stratégique chaque semaine
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="reveal text-sub text-text-secondary max-w-2xl mx-auto mb-10" style="transition-delay: 0.2s">
+        Ne laissez plus une erreur de facture ou un mail client manqué freiner votre croissance.
+        Transformez votre <strong class="text-deep-tech">"dette opérationnelle"</strong> en moteur de closing.
+      </p>
+
+      <!-- Impact Box -->
+      <div class="reveal max-w-xl mx-auto mb-10" style="transition-delay: 0.3s">
+        <div class="relative bg-white rounded-3xl p-6 md:p-8 shadow-card border border-deep-tech/5">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="badge bg-red-50 text-red-600 border border-red-100">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>
+              Calcul d'impact
+            </span>
+          </div>
+          <p class="text-text-secondary text-sm md:text-base leading-relaxed mt-2">
+            Votre expertise vaut <strong class="text-deep-tech">200 €/h</strong>.
+            Passer 10h par semaine sur de l'administratif, c'est jeter
+          </p>
+          <div class="flex items-baseline justify-center gap-1 mt-3">
+            <span id="impact-counter" class="font-display text-4xl md:text-5xl font-bold text-accent-blue">1 500</span>
+            <span class="text-text-secondary text-lg">€ à la poubelle</span>
+          </div>
+          <p class="text-text-muted text-sm mt-2">chaque semaine.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.4s">
+        <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" class="btn-primary text-lg !px-10 !py-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+          Réserver mon diagnostic
+        </a>
+        <span class="text-xs text-text-muted">Gratuit · Sans engagement · 30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted">
+    <span class="text-xs tracking-widest uppercase">Découvrir</span>
+    <div class="w-5 h-8 rounded-full border-2 border-text-muted/30 flex justify-center pt-1.5">
+      <div class="w-1 h-2 rounded-full bg-text-muted/50 animate-bounce"></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-text-primary bg-white;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent-blue/20 text-deep-tech;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           px-8 py-4 rounded-2xl
+           bg-deep-tech text-white font-display font-semibold text-base
+           transition-all duration-300 ease-out
+           hover:bg-accent-blue hover:shadow-glow hover:-translate-y-0.5
+           active:translate-y-0
+           focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           px-8 py-4 rounded-2xl
+           bg-white text-deep-tech font-display font-semibold text-base
+           border-2 border-deep-tech/10
+           transition-all duration-300 ease-out
+           hover:border-accent-blue hover:text-accent-blue hover:shadow-soft
+           focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-5 sm:px-8;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+           text-xs font-semibold tracking-wide uppercase;
+  }
+}
