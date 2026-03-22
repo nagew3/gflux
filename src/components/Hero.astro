@@ -2,65 +2,76 @@
 const calendlyUrl = "https://calendly.com/gawen-francois/audit-perte-de-temps-gflux";
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-white via-surface to-accent-blue/5 -z-10"></div>
-  <div class="absolute top-1/4 -right-32 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl -z-10"></div>
-  <div class="absolute bottom-1/4 -left-32 w-80 h-80 bg-deep-blue/5 rounded-full blur-3xl -z-10"></div>
-
-  <div class="container-narrow w-full">
-    <div class="max-w-4xl mx-auto text-center">
+<section id="hero" class="relative min-h-screen flex items-center pt-32 pb-20 bg-black overflow-x-hidden font-sans border-b border-bento-border">
+  
+  <div class="container-narrow w-full relative z-10 flex flex-col items-center mt-10">
+    <div class="max-w-5xl mx-auto text-center">
       <!-- Badge -->
-      <div class="reveal inline-flex items-center gap-2 badge bg-accent-blue/10 text-accent-blue mb-8">
-        <span class="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse-soft"></span>
-        Offert aux 5 prochaines ESN
+      <div class="reveal flex items-center justify-center bg-deep-navy/40 border border-tech-blue/30 rounded-full pl-2 pr-4 py-1.5 text-tech-blue text-xs sm:text-sm mb-10 tracking-wider font-light mx-auto max-w-max shadow-[0_0_20px_rgba(27,127,248,0.2)]">
+        <span class="bg-tech-blue text-white px-3 py-1 rounded-full mr-3 text-xs font-semibold">CONFIDENTIALITÉ GARANTIE</span>
+        Architecture IA 100% Sécurisée
       </div>
 
-      <!-- Headline -->
-      <h1 class="reveal font-display text-hero text-deep-tech mb-6 tracking-tight" style="transition-delay: 0.1s">
-        Dirigeants d'ESN : <br class="hidden sm:block"/>
-        <span class="bg-gradient-to-r from-accent-blue to-deep-blue bg-clip-text text-transparent">Éradiquez 10h</span>
-        de votre temps stratégique chaque semaine
+      <!-- Headline (Quantam style: huge, thin) -->
+      <h1 class="reveal text-5xl sm:text-6xl md:text-[5rem] lg:text-[6rem] font-bold leading-tight font-light text-white mb-2" style="transition-delay: 0.1s">
+        Risque zéro.
+      </h1>
+      <h1 class="reveal text-5xl sm:text-6xl md:text-[5rem] lg:text-[6rem] font-bold leading-tight mb-8 font-light text-transparent bg-clip-text bg-gradient-to-r from-tech-blue to-white" style="transition-delay: 0.2s">
+        Résultat maximum.
       </h1>
 
       <!-- Sub-headline -->
-      <p class="reveal text-sub text-text-secondary max-w-2xl mx-auto mb-10" style="transition-delay: 0.2s">
-        Ne laissez plus une erreur de facture ou un mail client manqué freiner votre croissance.
-        Transformez votre <strong class="text-deep-tech">"dette opérationnelle"</strong> en moteur de closing.
+      <p class="reveal text-base sm:text-lg text-text-secondary max-w-2xl mx-auto mb-2 font-light" style="transition-delay: 0.3s">
+        Nous concevons vos agents IA de façon ultra-privatisée.
+      </p>
+      <p class="reveal text-sm sm:text-base text-blue-200 max-w-2xl mx-auto mb-14 font-light" style="transition-delay: 0.4s">
+        Éradiquez votre charge administrative sans sacrifier la sécurité de vos données.
       </p>
 
-      <!-- Impact Box -->
-      <div class="reveal max-w-xl mx-auto mb-10" style="transition-delay: 0.3s">
-        <div class="relative bg-white rounded-3xl p-6 md:p-8 shadow-card border border-deep-tech/5">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="badge bg-red-50 text-red-600 border border-red-100">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>
-              Calcul d'impact
-            </span>
-          </div>
-          <p class="text-text-secondary text-sm md:text-base leading-relaxed mt-2">
-            Votre expertise vaut <strong class="text-deep-tech">200 €/h</strong>.
-            Passer 10h par semaine sur de l'administratif, c'est jeter
-          </p>
-          <div class="flex items-baseline justify-center gap-1 mt-3">
-            <span id="impact-counter" class="font-display text-4xl md:text-5xl font-bold text-accent-blue">1 500</span>
-            <span class="text-text-secondary text-lg">€ à la poubelle</span>
-          </div>
-          <p class="text-text-muted text-sm mt-2">chaque semaine.</p>
+      <!-- CTA & Trust -->
+      <div class="reveal flex flex-col items-center justify-center gap-4 mb-24" style="transition-delay: 0.5s">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" class="bg-tech-blue text-white border border-tech-blue px-8 py-3.5 cursor-pointer hover:bg-blue-600 transition-colors rounded-md text-base font-semibold shadow-[0_4px_30px_rgba(27,127,248,0.4)]">
+            Démarrer 15min de diagnostic (Gratuit)
+          </a>
+          <a href="#solution" class="bg-white/5 border border-white/10 text-white px-8 py-3.5 cursor-pointer hover:bg-deep-navy/50 transition-colors rounded-md text-base font-light">
+            Découvrir vos futurs agents
+          </a>
+        </div>
+        <div class="flex items-center gap-2 mt-2 text-xs text-text-muted">
+          <svg class="w-4 h-4 text-mustard" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          <span class="font-medium text-text-secondary">Sans engagement — Données stockées en France.</span>
         </div>
       </div>
-
-      <!-- CTA -->
-      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.4s">
-        <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" class="btn-primary text-lg !px-10 !py-4">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-          Réserver mon diagnostic
-        </a>
-        <span class="text-xs text-text-muted">Gratuit · Sans engagement · 30 min</span>
+      
+      <!-- Infinite Moving Fading Carousel (Marquee) -->
+      <div class="reveal w-full max-w-4xl mx-auto overflow-hidden relative h-16 z-10" style="transition-delay: 0.6s">
+        <div class="flex animate-marquee whitespace-nowrap text-deep-navy font-display font-bold text-3xl sm:text-4xl tracking-widest items-center pt-2">
+          <span class="mx-8">SÉCURITÉ INFAILLIBLE</span>
+          <span class="mx-8">∞</span>
+          <span class="mx-8">RÉSULTATS GARANTIS</span>
+          <span class="mx-8">∞</span>
+          <span class="mx-8">CONFIDENTIALITÉ</span>
+          <span class="mx-8">∞</span>
+          <span class="mx-8">SÉCURITÉ INFAILLIBLE</span>
+          <span class="mx-8">∞</span>
+          <span class="mx-8">RÉSULTATS GARANTIS</span>
+          <span class="mx-8">∞</span>
+          <span class="mx-8">CONFIDENTIALITÉ</span>
+          <span class="mx-8">∞</span>
+          <span class="mx-8">RÉSULTATS GARANTIS</span>
+        </div>
+        <!-- Fading gradients -->
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent"></div>
       </div>
     </div>
   </div>
 
+  <!-- Gradient Glow Footer / Hero Base -->
+  <div class="absolute bottom-[-100px] left-0 right-0 h-[500px] bg-gradient-to-t from-deep-navy via-tech-blue/10 to-transparent rounded-t-full opacity-60 blur-3xl pointer-events-none"></div>
+
+</section>
   <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted">
     <span class="text-xs tracking-widest uppercase">Découvrir</span>

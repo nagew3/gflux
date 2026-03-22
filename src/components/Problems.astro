@@ -1,72 +1,70 @@
 ---
 const problems = [
   {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51" /></svg>`,
+    icon: `<svg viewBox="0 0 48 48" fill="none" class="w-8 h-8"><rect width="48" height="48" rx="10" fill="#171717" stroke="white" stroke-opacity="0.12"/><path d="M14 34V24c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v10M24 34V18c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v16M34 34V12c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v22" fill="#262626"/><rect x="34" y="10" width="8" height="24" rx="2" fill="#1b7ff8" fill-opacity="0.8"/></svg>`,
     title: "Opportunités perdues",
-    description: "Ce gros contrat loupé parce qu'un mail important a été noyé sous les notifications.",
-    accent: "bg-amber-50 text-amber-600 border-amber-100",
+    description: "Ce contrat loupé parce qu'un document important a été noyé sous les notifications quotidiennes.",
+    span: "md:col-span-2",
   },
   {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>`,
+    icon: `<svg viewBox="0 0 48 48" fill="none" class="w-8 h-8"><rect width="48" height="48" rx="10" fill="#171717" stroke="white" stroke-opacity="0.12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 8L10 14v10c0 9 14 16 14 16s14-7 14-16V14L24 8zm0 20c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="#262626"/><circle cx="24" cy="22" r="3" fill="#8a1404" fill-opacity="0.8"/></svg>`,
     title: "Risques critiques",
-    description: "Échéances bancaires passées ou erreurs de facturation qui impactent votre trésorerie.",
-    accent: "bg-red-50 text-red-600 border-red-100",
+    description: "Échéances passées et erreurs de facturation manuelles dues à la fatigue.",
+    span: "md:col-span-1",
   },
   {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>`,
-    title: "Vie personnelle sacrifiée",
-    description: "Vos dimanches soirs sont dévorés par la gestion de l'urgent au détriment de l'important.",
-    accent: "bg-purple-50 text-purple-600 border-purple-100",
+    icon: `<svg viewBox="0 0 48 48" fill="none" class="w-8 h-8"><rect width="48" height="48" rx="10" fill="#171717" stroke="white" stroke-opacity="0.12"/><rect x="12" y="14" width="24" height="4" rx="2" fill="#404040"/><rect x="12" y="22" width="24" height="4" rx="2" fill="#404040"/><rect x="12" y="30" width="16" height="4" rx="2" fill="#404040"/><circle cx="34" cy="32" r="4" fill="#1b7ff8" fill-opacity="0.8"/></svg>`,
+    title: "Surcharge mentale",
+    description: "Vos soirées dévorées par la gestion de l'urgent et l'administratif.",
+    span: "md:col-span-1",
   },
   {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>`,
+    icon: `<svg viewBox="0 0 48 48" fill="none" class="w-8 h-8"><rect width="48" height="48" rx="10" fill="#171717" stroke="white" stroke-opacity="0.12"/><path d="M28 12h10v10l-4-4-12 12-8-8-10 10v-5l10-10 8 8 9-9-3-4z" fill="#262626"/><path d="M24 20l5-5 5 5H24z" fill="#1b7ff8" fill-opacity="0.8"/></svg>`,
     title: "Croissance bridée",
-    description: "Pendant que vous triez des mails, vos concurrents closent des deals et recrutent les meilleurs talents.",
-    accent: "bg-blue-50 text-blue-600 border-blue-100",
+    description: "Pendant que vous triez des documents, vos concurrents innovent et recrutent les meilleurs talents. Sortez de l'opérationnel.",
+    span: "md:col-span-2",
   },
 ];
 ---
 
-<section id="probleme" class="section-padding bg-surface">
+<section id="probleme" class="section-padding bg-black relative">
+  <!-- Subtle top gradient -->
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-bento-border to-transparent"></div>
+
   <div class="container-narrow">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="reveal badge bg-red-50 text-red-600 border border-red-100 mb-6">
-        Le problème
-      </div>
-      <h2 class="reveal font-display text-section text-deep-tech mb-5">
-        Le coût <span class="text-accent-blue">invisible</span> de la gestion manuelle
+      <h2 class="reveal font-display text-3xl md:text-5xl text-white mb-6">
+        Le coût invisible de la <br class="hidden sm:block"/><span class="text-text-muted">gestion manuelle.</span>
       </h2>
-      <p class="reveal text-text-secondary text-lg">
-        Chaque heure passée sur des tâches administratives est une heure volée à votre croissance stratégique.
+      <p class="reveal text-text-secondary text-lg font-light">
+        Vos équipes perdent jusqu'à 2 jours par semaine sur des tâches répétitives.
       </p>
     </div>
 
-    <!-- Problem Cards Grid -->
-    <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
       {problems.map((problem, i) => (
         <div
-          class="reveal group bg-white rounded-2xl p-6 md:p-8 border border-deep-tech/5 hover:border-accent-blue/20 hover:shadow-card transition-all duration-500"
+          class={`reveal group relative flex flex-col justify-end overflow-hidden rounded-3xl bg-surface border border-bento-border p-8 min-h-[250px] transition-all duration-500 hover:border-text-muted/50 ${problem.span}`}
           style={`transition-delay: ${i * 0.1}s`}
         >
-          <div class={`inline-flex items-center justify-center w-12 h-12 rounded-xl border ${problem.accent} mb-5 transition-transform duration-300 group-hover:scale-110`}>
-            <Fragment set:html={problem.icon} />
+          <!-- Hover glow effect -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="h-full flex flex-col p-6 sm:p-8">
+            <div class="mb-auto inline-flex items-center justify-center w-12 h-12 rounded-xl bg-surface-alt border border-bento-border text-white shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-110 group-hover:text-tech-blue">
+              <Fragment set:html={problem.icon} />
+            </div>
+            <h3 class="font-display text-xl font-medium text-white mt-8 mb-2">
+              {problem.title}
+            </h3>
+            <p class="text-text-secondary font-light text-sm md:text-base">
+              {problem.description}
+            </p>
           </div>
-          <h3 class="font-display text-lg font-bold text-deep-tech mb-3">
-            {problem.title}
-          </h3>
-          <p class="text-text-secondary leading-relaxed">
-            {problem.description}
-          </p>
         </div>
       ))}
-    </div>
-
-    <!-- Bottom emphasis -->
-    <div class="reveal text-center mt-12">
-      <p class="text-text-secondary text-base">
-        <strong class="text-deep-tech">Résultat ?</strong> Vous êtes coincé dans un cercle vicieux qui freine votre développement.
-      </p>
     </div>
   </div>
 </section>

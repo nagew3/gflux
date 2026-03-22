@@ -15,29 +15,26 @@
   }
 
   ::selection {
-    @apply bg-accent-blue/20 text-deep-tech;
+    @apply bg-tech-blue/20 text-deep-tech;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2
-           px-8 py-4 rounded-2xl
-           bg-deep-tech text-white font-display font-semibold text-base
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent
+           text-base font-medium rounded-md text-white bg-white/10 backdrop-blur-md
            transition-all duration-300 ease-out
-           hover:bg-accent-blue hover:shadow-glow hover:-translate-y-0.5
-           active:translate-y-0
-           focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+           hover:bg-tech-blue hover:shadow-glow hover:-translate-y-0.5
+           hover:border-white/20
+           focus:outline-none focus:ring-2 focus:ring-tech-blue focus:ring-offset-2;
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2
-           px-8 py-4 rounded-2xl
-           bg-white text-deep-tech font-display font-semibold text-base
-           border-2 border-deep-tech/10
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-bento-border
+           text-base font-medium rounded-md text-text-primary bg-transparent
            transition-all duration-300 ease-out
-           hover:border-accent-blue hover:text-accent-blue hover:shadow-soft
-           focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+           hover:border-tech-blue hover:text-tech-blue hover:shadow-soft
+           focus:outline-none focus:ring-2 focus:ring-tech-blue focus:ring-offset-2;
   }
 
   .section-padding {

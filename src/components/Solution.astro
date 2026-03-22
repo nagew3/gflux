@@ -4,82 +4,150 @@ const youtubeUrl = "https://www.youtube.com/embed/YJF2PSLd8Mo";
 const features = [
   {
     icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
-    title: "Pas un SaaS générique",
-    description: "Un logiciel classique n'est jamais vraiment personnalisé à votre workflow. Inbox Pilot est configuré sur-mesure.",
+    title: "Intelligence Dédiée",
+    description: "Pas de SaaS générique. Nous entraînons et concevons des agents IA qui épousent parfaitement votre logique métier.",
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>`,
-    title: "Moins cher qu'une secrétaire",
-    description: "Une assistante coûte 2 500 €/mois minimum. Inbox Pilot offre un ROI immédiat pour une fraction du prix.",
+    title: "Impact Financier",
+    description: "Multipliez votre capacité de production opérationnelle pour une fraction du coût d'un profil junior externe.",
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
-    title: "90% de décisions pré-mâchées",
-    description: "Architecture IA propriétaire qui apprend votre logique métier et pré-traite vos prises de décision.",
+    title: "Apprentissage Continu",
+    description: "Les agents évoluent. Nous monitorons les performances pour maximiser la capacité de traitement chaque mois.",
   },
 ];
 ---
 
-<section id="solution" class="section-padding bg-white">
+<section id="solution" class="section-padding bg-black relative">
+  <!-- Subtle divider -->
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-bento-border to-transparent"></div>
+
   <div class="container-narrow">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="reveal badge bg-accent-blue/10 text-accent-blue mb-6">
-        La solution
-      </div>
-      <h2 class="reveal font-display text-section text-deep-tech mb-5">
-        Pourquoi <span class="bg-gradient-to-r from-accent-blue to-deep-blue bg-clip-text text-transparent">Inbox Pilot</span> est différent
+      <div class="reveal inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tech-blue/10 border border-tech-blue/20 text-tech-blue text-sm mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-tech-blue animate-pulse"></span>
+        Notre Console IA     </div>
+      <h2 class="reveal font-display text-3xl md:text-5xl text-white mb-6">
+        Vos agents, <span class="text-transparent bg-clip-text bg-gradient-to-r from-tech-blue to-white">votre armée silencieuse.</span>
       </h2>
-      <p class="reveal text-text-secondary text-lg">
-        Une architecture IA propriétaire configurée sur-mesure pour votre workflow spécifique.
+      <p class="reveal text-text-secondary text-lg max-w-2xl mx-auto font-light">us créons non pas de simples outils, mais de véritables collaborateurs virtuels invisibles qui traitent le flux quotidien.
       </p>
     </div>
 
-    <!-- YouTube Video -->
-    <div class="reveal max-w-4xl mx-auto mb-16">
-      <div class="relative rounded-2xl overflow-hidden shadow-card border border-deep-tech/5 bg-deep-tech aspect-video">
-        <iframe
-          src={youtubeUrl}
-          title="Présentation Inbox Pilot — GFlux"
-          class="absolute inset-0 w-full h-full"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+    <!-- Aether UI Dashboard / Glass Container -->
+    <div class="reveal max-w-5xl mx-auto mb-16 relative">
+      <div class="absolute -inset-1 bg-gradient-to-r from-deep-navy/40 to-tech-blue/30 rounded-3xl blur opacity-30"></div>
+      
+      <!-- Mock Glass Dashboard -->
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-gray-900 ring-1 ring-white/10 flex flex-col md:flex-row text-gray-200" style="aspect-ratio: 16/9;">
+        
+        <!-- Sidebar -->
+        <aside class="hidden md:flex w-48 lg:w-64 flex-shrink-0 flex-col bg-white/5 border-r border-white/10 pt-6">
+          <div class="px-6 mb-8 flex items-center gap-3">
+            <span class="w-3 h-3 rounded-full bg-dark-red"></span><span class="w-3 h-3 rounded-full bg-mustard"></span><span class="w-3 h-3 rounded-full bg-green-500"></span>
+          </div>
+          <nav class="flex-grow px-4 space-y-2">
+            <!-- Nav Items -->
+            {['Dashboard', 'Workflows', 'Facturation', 'Base de données', 'Paramètres'].map((item, index) => (
+              <div class={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm transition-colors ${index === 0 ? 'bg-white/10 text-white font-medium' : 'text-gray-400 hover:bg-white/5'}`}>
+                {index === 0 && <svg class="w-4 h-4 text-tech-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>}
+                {index === 1 && <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>}
+                {index > 1 && <div class="w-4 h-4 border border-current rounded-sm opacity-50"></div>}
+                <span>{item}</span>
+              </div>
+            ))}
+          </nav>
+          <div class="p-4 border-t border-white/10">
+            <div class="flex items-center gap-2 text-xs text-mustard bg-mustard/10 p-2 rounded border border-mustard/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+              <span>Chiffrement AES-256</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow p-6 md:p-8 flex flex-col bg-gradient-to-br from-transparent to-gray-900/50">
+          <header class="flex justify-between items-center mb-8">
+            <div>
+              <h1 class="text-2xl font-display font-semibold text-white">Console Agents</h1>
+              <p class="text-sm text-gray-400 mt-1">Vos workflows synchronisés en temps réel.</p>
+            </div>
+            <div class="hidden sm:flex items-center gap-3">
+              <span class="relative flex h-2 w-2 mr-1">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tech-blue opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-tech-blue"></span>
+              </span>
+              <span class="text-sm text-tech-blue">Serveurs Sécurisés FR</span>
+            </div>
+          </header>
+
+          <!-- Metrics Row -->
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <div class="bg-white/5 border border-white/5 rounded-xl p-5">
+              <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Tâches Automatisées</h2>
+              <p class="text-3xl font-bold mt-2 text-tech-blue">12,503</p>
+            </div>
+            <div class="bg-white/5 border border-white/5 rounded-xl p-5">
+              <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Erreurs Bloquées</h2>
+              <p class="text-3xl font-bold mt-2 text-dark-red">42</p>
+            </div>
+            <div class="hidden lg:block bg-white/5 border border-white/5 rounded-xl p-5">
+              <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Temps Économisé</h2>
+              <p class="text-3xl font-bold mt-2 text-mustard">148h</p>
+            </div>
+          </div>
+
+          <!-- Active Workflows List -->
+          <div class="bg-white/5 border border-white/5 rounded-xl flex-grow p-5 overflow-hidden relative">
+            <h2 class="text-sm font-semibold text-white mb-4">Flux Actifs (Logs)</h2>
+            <ul class="space-y-3 relative z-10">
+              <li class="flex items-center justify-between text-sm p-2 rounded bg-white/5 border-l-2 border-tech-blue">
+                <span class="text-gray-300">Extraction de devis PDF &gt; Synchro CRM</span>
+                <span class="text-xs text-tech-blue">Succès</span>
+              </li>
+              <li class="flex items-center justify-between text-sm p-2 rounded bg-white/5 border-l-2 border-gray-600">
+                <span class="text-gray-300">Tri de candidatures entrantes</span>
+                <span class="text-xs text-mustard animate-pulse">En cours...</span>
+              </li>
+              <li class="flex items-center justify-between text-sm p-2 rounded bg-white/5 border-l-2 border-gray-600">
+                <span class="text-gray-300">Vérification des congés &gt; Paie</span>
+                <span class="text-xs text-gray-500">En attente</span>
+              </li>
+            </ul>
+            <!-- Glow effect inside box -->
+            <div class="absolute bottom-0 right-0 w-48 h-48 bg-tech-blue/10 blur-3xl rounded-full"></div>
+          </div>
+        </main>
       </div>
     </div>
 
     <!-- Features Grid -->
-    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+    <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
       {features.map((feature, i) => (
         <div
-          class="reveal group text-center p-6 md:p-8 rounded-2xl border border-deep-tech/5 hover:border-accent-blue/20 hover:shadow-card transition-all duration-500 bg-surface/50"
-          style={`transition-delay: ${i * 0.1}s`}
-        >
-          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-blue/10 text-accent-blue mb-5 transition-all duration-300 group-hover:bg-accent-blue group-hover:text-white group-hover:scale-110">
-            <Fragment set:html={feature.icon} />
-          </div>
-          <h3 class="font-display text-lg font-bold text-deep-tech mb-3">
-            {feature.title}
-          </h3>
-          <p class="text-text-secondary leading-relaxed text-sm">
+          class="reveal group flex flex-col p-6 md:p-8 rounded-2xl border border-bento-border hover:border-text-muted/40        <div class="group relative rounded-2xl bg-surface-alt border border-bento-border p-6 sm:p-8 hover:bg-white/[0.02] transition-colors duration-300">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-surface-alt border border-bento-border text-white mb-6 transition-transform duration-300 group-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.02)] group-hover:text-tech-blue">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          </div>p class="text-text-secondary leading-relaxed text-sm">
             {feature.description}
           </p>
         </div>
       ))}
     </div>
 
-    <!-- Promise Banner -->
-    <div class="reveal mt-16 bg-gradient-to-r from-deep-tech to-deep-blue rounded-2xl p-8 md:p-12 text-center">
-      <div class="max-w-2xl mx-auto">
-        <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-4">
-          La promesse GFlux
+    <!-- Promise Banner CTA Box -->
+    <div class="reveal mt-16 max-w-4xl mx-auto relative group">
+      <div class="absolute inset-0 bg-gradient-to-r from-tech-blue/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+      <div class="relative bg-surface border border-bento-border rounded-2xl p-8 md:p-12 text-center shadow-2xl overflow-hidden">
+        <h3 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">
+          La promesse <span class="text-tech-blue">GFlux</span>
         </h3>
-        <p class="text-white/80 text-base md:text-lg leading-relaxed">
-          <strong class="text-white">"Inbox Pilot"</strong> est une architecture IA propriétaire configurée sur-mesure pour votre workflow spécifique.
-          Elle <strong class="text-accent-light">pré-mâche 90%</strong> de votre prise de décision.
+        <p class="text-text-secondary text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto">
+          Un partenariat de bout en bout. 100% conçu, déployé et maintenu pour s'adapter à l'évolution de votre ESN. Nous visons un gain opérationnel de <strong class="text-white font-semibold">5 à 15 heures</strong> par collaborateur par semaine.
         </p>
-      </div>
     </div>
   </div>
 </section>
