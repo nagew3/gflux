@@ -1,85 +1,108 @@
 ---
-const youtubeUrl = "https://www.youtube.com/embed/YJF2PSLd8Mo";
-
-const features = [
-  {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
-    title: "Pas un SaaS générique",
-    description: "Un logiciel classique n'est jamais vraiment adapté à votre workflow. GFlux est configuré sur-mesure pour votre activité d'ESN.",
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>`,
-    title: "Moins cher qu'une secrétaire",
-    description: "Une assistante coûte 2 500 €/mois minimum. GFlux offre un ROI immédiat pour une fraction du prix.",
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
-    title: "Vous décidez, l'IA exécute",
-    description: "Notre IA analyse et prépare 90% de vos décisions opérationnelles. Vous gardez le contrôle total : rien ne part sans votre validation.",
-  },
-];
+// components/Solution.astro
 ---
 
-<section id="solution" class="section-padding bg-white">
-  <div class="container-narrow">
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="reveal badge bg-accent-blue/10 text-accent-blue mb-6">
-        La solution
-      </div>
-      <h2 class="reveal font-display text-section text-deep-tech mb-5">
-        Pourquoi <span class="bg-gradient-to-r from-accent-blue to-deep-blue bg-clip-text text-transparent">GFlux</span> est différent
+<section id="systeme" class="py-24 bg-deep-tech relative text-white overflow-hidden">
+  <!-- Decorative background -->
+  <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+    <div class="absolute top-0 right-[10%] w-[500px] h-[500px] bg-accent-blue rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-brand-orange/40 rounded-full blur-[100px]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+      <h2 class="font-display text-section mb-6">
+        La Solution : Un système, pas un outil.
       </h2>
-      <p class="reveal text-text-secondary text-lg">
-        Une solution IA sur-mesure, calibrée spécifiquement pour le workflow de votre ESN.
+      <p class="text-lg text-gray-300">
+        GFlux n'est pas un abonnement logiciel de plus. C'est la conception et la mise en œuvre de votre propre moteur administratif IA, sur mesure, piloté par un humain (vous).
       </p>
     </div>
 
-    <!-- YouTube Video -->
-    <div class="reveal max-w-4xl mx-auto mb-16">
-      <div class="relative rounded-2xl overflow-hidden shadow-card border border-deep-tech/5 bg-deep-tech aspect-video">
-        <iframe
-          src={youtubeUrl}
-          title="Présentation GFlux — Automatisation IA pour ESN"
-          class="absolute inset-0 w-full h-full"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-
-    <!-- Features Grid -->
-    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-      {features.map((feature, i) => (
-        <div
-          class="reveal group text-center p-6 md:p-8 rounded-2xl border border-deep-tech/5 hover:border-accent-blue/20 hover:shadow-card transition-all duration-500 bg-surface/50"
-          style={`transition-delay: ${i * 0.1}s`}
-        >
-          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-blue/10 text-accent-blue mb-5 transition-all duration-300 group-hover:bg-accent-blue group-hover:text-white group-hover:scale-110">
-            <Fragment set:html={feature.icon} />
+    <div class="flex flex-col lg:flex-row gap-12 items-center">
+      
+      <!-- Visual Represenation -->
+      <div class="w-full lg:w-1/2 reveal">
+        <div class="glass-dark rounded-3xl p-8 border border-white/20 shadow-2xl relative">
+          <!-- Mockup Header -->
+          <div class="flex items-center gap-2 mb-8 pb-4 border-b border-white/10">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            <span class="text-xs text-gray-400 ml-4 font-mono">GFlux Architecture</span>
           </div>
-          <h3 class="font-display text-lg font-bold text-deep-tech mb-3">
-            {feature.title}
-          </h3>
-          <p class="text-text-secondary leading-relaxed text-sm">
-            {feature.description}
-          </p>
+
+          <!-- Workflow illustration inside the dark card -->
+          <div class="space-y-4">
+            <!-- Row 1 -->
+            <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+              <div class="w-10 h-10 bg-accent-blue/20 flex items-center justify-center rounded-lg text-xl">📥</div>
+              <div class="flex-1">
+                <div class="h-2 w-24 bg-gray-400 rounded-full mb-2"></div>
+                <div class="h-2 w-16 bg-gray-600 rounded-full"></div>
+              </div>
+              <div class="text-xs py-1 px-3 bg-white/10 rounded-full text-gray-300">Entrées Multiples</div>
+            </div>
+            
+            <!-- Connection -->
+            <div class="w-1 h-6 bg-brand-orange/50 mx-auto rounded-full"></div>
+
+            <!-- Row 2 -->
+            <div class="flex items-center gap-4 bg-brand-orange/10 border border-brand-orange/30 rounded-xl p-4 transform scale-105 shadow-glow">
+              <div class="w-10 h-10 bg-brand-orange flex items-center justify-center rounded-lg text-xl">🧠</div>
+              <div class="flex-1">
+                <div class="text-sm font-semibold text-white mb-1">Cerveau GFlux (IA Sur Mesure)</div>
+                <div class="text-xs text-brand-orange">Tri, Analyse, Rédaction, Dispatch</div>
+              </div>
+            </div>
+
+            <!-- Connection -->
+            <div class="w-1 h-6 bg-accent-blue/50 mx-auto rounded-full"></div>
+
+            <!-- Row 3 -->
+            <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+              <div class="w-10 h-10 bg-green-500/20 flex items-center justify-center rounded-lg text-xl">✅</div>
+              <div class="flex-1">
+                <div class="h-2 w-32 bg-gray-400 rounded-full mb-2"></div>
+                <div class="h-2 w-20 bg-gray-600 rounded-full"></div>
+              </div>
+              <div class="text-xs py-1 px-3 bg-white/10 rounded-full text-gray-300">HubSpot / Notion / Outlook</div>
+            </div>
+          </div>
         </div>
-      ))}
+      </div>
+
+      <!-- Feature/Points List -->
+      <div class="w-full lg:w-1/2 space-y-8 reveal delay-100">
+        
+        <div class="flex items-start gap-4">
+          <div class="mt-1 w-8 h-8 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-light font-bold">1</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Centralisation Intelligente</h3>
+            <p class="text-gray-400">Vos emails, factures et cahiers des charges sont analysés en temps réel. Plus aucune information ne se perd.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="mt-1 w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange font-bold">2</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Zéro Changement D'Outils</h3>
+            <p class="text-gray-400">Le système est construit *autour* de vos logiciels (Gmail, Outlook, Slack, Pipedrive). Pas de nouveauté technique complexe à imposer aux équipes.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="mt-1 w-8 h-8 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-light font-bold">3</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Garde Fou Humain</h3>
+            <p class="text-gray-400">L'IA prépare le travail, vous validez. Un brouillon d'e-mail ou une tâche créée reste en attente de votre simple clic. Vous gardez 100% du contrôle.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- Promise Banner -->
-    <div class="reveal mt-16 bg-gradient-to-r from-deep-tech to-deep-blue rounded-2xl p-8 md:p-12 text-center">
-      <div class="max-w-2xl mx-auto">
-        <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-4">
-          La promesse GFlux
-        </h3>
-        <p class="text-white/80 text-base md:text-lg leading-relaxed">
-          Notre technologie IA apprend votre logique métier et <strong class="text-accent-light">pré-traite 90% de vos décisions opérationnelles</strong>.
-          Vous ne perdez jamais la main : chaque action importante reste soumise à <strong class="text-white">votre validation finale</strong>.
-        </p>
-      </div>
-    </div>
   </div>
 </section>

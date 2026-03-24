@@ -1,0 +1,106 @@
+---
+// components/FAQ.astro
+---
+
+<section class="py-24 bg-surface-alt relative border-y border-gray-200/50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16 reveal">
+      <h2 class="font-display text-section text-deep-tech mb-6">
+        Questions Fréquentes
+      </h2>
+      <p class="text-lg text-text-secondary">
+        Tout ce que vous devez savoir avant de réserver votre audit.
+      </p>
+    </div>
+
+    <div class="space-y-6 reveal delay-100">
+      
+      <!-- FAQ Item 1 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 group">
+        <h3 class="text-lg font-bold text-deep-tech mb-3 flex items-center justify-between cursor-pointer">
+          Est-ce que je dois changer mes outils actuels ?
+          <span class="text-brand-orange transition-transform group-hover:rotate-180">▼</span>
+        </h3>
+        <p class="text-text-secondary hidden group-hover:block transition-all mt-4">
+          Non. GFlux s'intègre via API à vos logiciels existants (Gmail, Outlook, Notion, HubSpot, Slack, Pipedrive). Notre système vient se greffer à votre organisation, et non l'inverse. Vous gardez vos habitudes.
+        </p>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 group">
+        <h3 class="text-lg font-bold text-deep-tech mb-3 flex items-center justify-between cursor-pointer">
+          Est-ce adapté à une petite ESN de 5 à 15 personnes ?
+          <span class="text-brand-orange transition-transform group-hover:rotate-180">▼</span>
+        </h3>
+        <p class="text-text-secondary hidden group-hover:block transition-all mt-4">
+          C'est la cible idéale. À cette taille, le dirigeant porte encore souvent la charge administrative, des RH et du commercial. GFlux permet de structurer la croissance sans avoir à embaucher immédiatement un profil administratif pur.
+        </p>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 group">
+        <h3 class="text-lg font-bold text-deep-tech mb-3 flex items-center justify-between cursor-pointer">
+          Où sont hébergées mes données ?
+          <span class="text-brand-orange transition-transform group-hover:rotate-180">▼</span>
+        </h3>
+        <p class="text-text-secondary hidden group-hover:block transition-all mt-4">
+          100% de l'infrastructure GFlux est hébergée sur des serveurs certifiés en France (par exemple chez OVH ou Scaleway). Nous garantissons la conformité RGPD et la souveraineté de vos données, une exigence majeure des ESN et de leurs clients.
+        </p>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 group">
+        <h3 class="text-lg font-bold text-deep-tech mb-3 flex items-center justify-between cursor-pointer">
+          Est-ce que je garde le contrôle sur ce qui est envoyé aux clients ?
+          <span class="text-brand-orange transition-transform group-hover:rotate-180">▼</span>
+        </h3>
+        <p class="text-text-secondary hidden group-hover:block transition-all mt-4">
+          Absolument. Nous mettons en place un système de "Human in the Loop". L'IA rédige les réponses ou prépare les factures d'après l'analyse, mais elles restent à l'état de brouillon. Vous validez en un clic. L'IA ne prend aucune décision finale sans vous.
+        </p>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 group">
+        <h3 class="text-lg font-bold text-deep-tech mb-3 flex items-center justify-between cursor-pointer">
+          Que se passe-t-il si je ne gagne pas 5h par semaine ?
+          <span class="text-brand-orange transition-transform group-hover:rotate-180">▼</span>
+        </h3>
+        <p class="text-text-secondary hidden group-hover:block transition-all mt-4">
+          Nous avons une garantie de résultat claire : si, après la mise en place du système, nous constatons que l'objectifs de gain de temps n'est pas atteint (moins de 5h par semaine), nous vous remboursons le coût de l'installation de manière intégrale.
+        </p>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 group">
+        <h3 class="text-lg font-bold text-deep-tech mb-3 flex items-center justify-between cursor-pointer">
+          Que contient concrètement l'audit gratuit ?
+          <span class="text-brand-orange transition-transform group-hover:rotate-180">▼</span>
+        </h3>
+        <p class="text-text-secondary hidden group-hover:block transition-all mt-4">
+          L'audit de 30 à 45 minutes analyse vos flux d'informations : comment recevez-vous les briefs clients, comment traitez-vous les relances, où perdez-vous du contexte. À la fin, je vous dirai exactement quelles tâches l'IA et l'automatisation peuvent éradiquer avec le meilleur ROI.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Simple toggle script for FAQ (just CSS hover used above, but can enhance with click listeners here if needed)
+  document.querySelectorAll('#faq .group').forEach(item => {
+    item.addEventListener('click', () => {
+      // Toggle logic can go here if CSS hover is not enough for mobile devices
+      const p = item.querySelector('p');
+      const span = item.querySelector('span');
+      if(p.classList.contains('hidden')) {
+        p.classList.remove('hidden');
+        span.classList.add('rotate-180');
+      } else {
+        p.classList.add('hidden');
+        span.classList.remove('rotate-180');
+      }
+    });
+  });
+</script>

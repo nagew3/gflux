@@ -1,0 +1,37 @@
+---
+// components/CentralCTA.astro
+---
+
+<section class="py-20 relative overflow-hidden">
+  <!-- Dynamic Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-deep-tech via-deep-blue to-accent-blue z-0"></div>
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] z-0 opacity-30"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur-sm text-sm font-medium text-white shadow-soft">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+      Audit 100% Stratégique • Sans engagement commercial
+    </div>
+
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+      Identifions précisément où votre ESN<br class="hidden md:block"/> perd du temps aujourd'hui.
+    </h2>
+    
+    <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+      Réservez un créneau de 30 minutes. Nous analyserons vos flux de données et vous repartirez avec un plan d'action de bout en bout, que vous travailliez avec nous ou non.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+      <a href="#calendly" class="px-8 py-4 bg-brand-orange hover:bg-brand-orange-hover text-white rounded-full font-bold text-lg transition-all shadow-glow hover:shadow-lg transform hover:-translate-y-1 w-full sm:w-auto">
+        Réserver un audit gratuit
+      </a>
+      
+      <div class="text-left hidden sm:block border-l-2 border-white/20 pl-6 py-1">
+        <p class="text-sm font-bold text-white">Créneaux restants :</p>
+        <p class="text-brand-orange font-bold text-lg">Seulement 3 ce mois-ci</p>
+      </div>
+    </div>
+
+  </div>
+</section>
