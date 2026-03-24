@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Problems from '../components/Problems.astro';
 import Solution from '../components/Solution.astro';
+import Testimonials from '../components/Testimonials.astro';
 import Offer from '../components/Offer.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -14,6 +15,7 @@ import Footer from '../components/Footer.astro';
     <Hero />
     <Problems />
     <Solution />
+    <Testimonials />
     <Offer />
   </main>
   <Footer />
@@ -48,27 +50,6 @@ import Footer from '../components/Footer.astro';
       }
     );
   });
-
-  // ── Impact Counter Animation ──
-  const counterEl = document.getElementById('impact-counter');
-  if (counterEl) {
-    const target = 1500;
-    const obj = { val: 0 };
-
-    gsap.to(obj, {
-      val: target,
-      duration: 2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: counterEl,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
-      onUpdate: () => {
-        counterEl.textContent = Math.round(obj.val).toLocaleString('fr-FR');
-      },
-    });
-  }
 
   // ── Stagger animation for problem cards ──
   const problemCards = document.querySelectorAll('#probleme .group');
@@ -112,6 +93,27 @@ import Footer from '../components/Footer.astro';
     );
   }
 
+  // ── Stagger animation for testimonial cards ──
+  const testimonialCards = document.querySelectorAll('#temoignages .group');
+  if (testimonialCards.length) {
+    gsap.fromTo(testimonialCards,
+      { opacity: 0, y: 50, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#temoignages .grid',
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
   // ── Promise banner parallax-like entrance ──
   const promiseBanner = document.querySelector('#solution .bg-gradient-to-r');
   if (promiseBanner) {
@@ -126,6 +128,26 @@ import Footer from '../components/Footer.astro';
         scrollTrigger: {
           trigger: promiseBanner,
           start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
+  // ── Guarantee block entrance ──
+  const guaranteeBlock = document.querySelector('#offre .bg-gradient-to-br');
+  if (guaranteeBlock) {
+    gsap.fromTo(guaranteeBlock,
+      { opacity: 0, y: 60, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: guaranteeBlock,
+          start: 'top 80%',
           toggleActions: 'play none none none',
         },
       }
@@ -151,4 +173,5 @@ import Footer from '../components/Footer.astro';
       }
     );
   }
+
 </script>

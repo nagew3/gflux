@@ -2,6 +2,18 @@ services:
   web:
     build: .
     ports:
-      - "8080:80"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
     restart: unless-stopped
     container_name: gflux-web
+    networks:
+      - caddy-net
+
+volumes:
+  caddy_data:
+
+networks:
+  caddy-net:
+    name: caddy-net
