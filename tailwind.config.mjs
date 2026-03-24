@@ -8,8 +8,8 @@ export default {
                 'deep-blue': '#1E3A5F',
                 'accent-blue': '#2563EB',
                 'accent-light': '#3B82F6',
-                'brand-orange': '#F97316',
-                'brand-orange-hover': '#EA580C',
+                'brand-orange': '#E65100',
+                'brand-orange-hover': '#CC4400',
                 'brand-pink': '#FCE7F3',
                 'surface': '#F8F9FA',
                 'surface-alt': '#F1F3F5',
@@ -42,8 +42,8 @@ export default {
                 'glow': '0 0 40px -8px rgba(37, 99, 235, 0.3)',
             },
             animation: {
-                'fade-in': 'fadeIn 0.8s ease-out forwards',
-                'slide-up': 'slideUp 0.8s ease-out forwards',
+                'fade-in': 'fadeIn 0.5s ease-out forwards',
+                'slide-up': 'slideUp 0.5s ease-out forwards',
                 'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
             },
             keyframes: {

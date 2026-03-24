@@ -26,6 +26,5 @@
 
 /* Base reveal classes for GSAP */
 .reveal {
-  opacity: 0;
-  visibility: hidden;
+  /* Let GSAP handle the initial state dynamically to avoid latency / LCP penalties on slow networks */
 }
