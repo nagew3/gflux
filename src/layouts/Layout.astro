@@ -5,8 +5,8 @@ export interface Props {
 }
 
 const {
-  title = "GFlux — Automatisation IA pour Dirigeants d'ESN",
-  description = "Éradiquez 10h de tâches administratives par semaine grâce à notre architecture IA propriétaire. Audit offert pour les 5 prochaines ESN."
+  title = "GFlux | Automatisation IA pour ESN & Gain de Productivité",
+  description = "GFlux aide les dirigeants d'ESN en France à automatiser leur gestion de mails et processus administratifs. Réservez votre audit gratuit et gagnez 5h par semaine."
 } = Astro.props;
 ---
 <!doctype html>
@@ -18,11 +18,19 @@ const {
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://gflux.fr/" />
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gflux.fr/" />
     <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content="https://gflux.fr/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,14 +38,26 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
 
-    <!-- JSON-LD Breadcrumb / Organization -->
+    <!-- JSON-LD Breadcrumb / Organization / Service -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "GFlux",
-        "url": "https://gflux.fr",
-        "description": "Automatisation IA sur mesure pour les dirigeants d'ESN. Éradiquez la charge administrative et le chaos des emails."
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://gflux.fr/#organization",
+            "name": "GFlux",
+            "url": "https://gflux.fr",
+            "description": "Automatisation IA sur mesure pour les dirigeants d'ESN."
+          },
+          {
+            "@type": "Service",
+            "name": "Automatisation et IA pour ESN",
+            "provider": {"@id": "https://gflux.fr/#organization"},
+            "description": "Système sur mesure d'automatisation des flux administratifs et emails pour ESN.",
+            "areaServed": "FR"
+          }
+        ]
       }
     </script>
     <title>{title}</title>

@@ -52,13 +52,27 @@
     </div>
 
     <!-- Strong Transition -->
-    <div class="bg-deep-tech text-white rounded-3xl p-8 md:p-12 text-center reveal shadow-card">
-      <h3 class="text-2xl md:text-3xl font-display font-bold mb-4">
+    <div class="bg-deep-tech text-white rounded-3xl p-8 md:p-12 lg:p-16 text-center reveal shadow-card max-w-5xl mx-auto">
+      <h3 class="text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-4">
         Le problème n’est pas votre organisation personnelle.
       </h3>
-      <p class="text-xl text-accent-light font-medium">
+      <p class="text-xl md:text-2xl text-accent-light font-medium mb-12">
         Le problème, c’est l’absence de système.
       </p>
+
+      <!-- Video Embed -->
+      <div class="relative w-full max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black group isolate">
+        <!-- Glow effect behind video -->
+        <div class="absolute -inset-1 bg-gradient-to-r from-accent-blue to-brand-orange opacity-30 group-hover:opacity-50 blur-lg transition duration-1000 group-hover:duration-200"></div>
+        <iframe 
+          class="relative w-full h-full z-10 rounded-2xl"
+          src="https://www.youtube.com/embed/YJF2PSLd8Mo?modestbranding=1&rel=0&color=white" 
+          title="Le système GFlux pour les ESN" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
 
   </div>
