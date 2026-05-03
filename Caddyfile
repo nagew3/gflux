@@ -11,8 +11,8 @@ gflux.fr {
 	# Serve static files
 	root * /srv
 
-	# SPA fallback
-	try_files {path} /index.html
+	# SPA fallback & Astro Static Directories
+	try_files {path} {path}/ /index.html
 	file_server
 
 	# Cache static assets (1 year)
