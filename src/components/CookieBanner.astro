@@ -1,0 +1,77 @@
+---
+// Composant de bannière de cookies pour gérer le consentement RGPD
+---
+
+<div 
+  id="cookie-banner" 
+  class="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 text-slate-200 p-4 sm:p-5 z-50 transform translate-y-full transition-transform duration-500 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] flex flex-col sm:flex-row items-center justify-between gap-4 font-sans"
+  aria-hidden="true"
+>
+  <div class="text-sm text-slate-400 max-w-5xl leading-relaxed">
+    <p>Nous utilisons <strong>PostHog</strong> pour analyser le trafic et le comportement sur le site afin d'améliorer l'expérience. Acceptez-vous le dépôt de cookies à des fins d'analyse ?</p>
+  </div>
+  <div class="flex gap-3 w-full sm:w-auto shrink-0">
+    <button 
+      id="btn-reject-cookies" 
+      class="flex-1 sm:flex-none px-5 py-2 text-sm font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 hover:text-white rounded-lg transition-colors border border-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500"
+    >
+      Refuser
+    </button>
+    <button 
+      id="btn-accept-cookies" 
+      class="flex-1 sm:flex-none px-5 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors shadow-sm shadow-blue-900/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    >
+      Accepter
+    </button>
+  </div>
+</div>
+
+<script>
+  // Script côté client pour la gestion de l'affichage et de l'état
+  document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cookie-banner');
+    const btnAccept = document.getElementById('btn-accept-cookies');
+    const btnReject = document.getElementById('btn-reject-cookies');
+
+    // Vérifier s'il y a déjà un choix enregistré
+    const consent = localStorage.getItem('cookie-consent');
+    
+    if (!consent) {
+      // Afficher le bandeau après un léger délai pour une meilleure expérience
+      setTimeout(() => {
+        if(banner) {
+          banner.classList.remove('translate-y-full');
+          banner.setAttribute('aria-hidden', 'false');
+        }
+      }, 800);
+    }
+
+    const hideBanner = () => {
+      if(banner) {
+        banner.classList.add('translate-y-full');
+        banner.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'accepted');
+        hideBanner();
+        
+        // Déclencher l'initialisation de PostHog déclarée dans Layout.astro
+        // @ts-ignore
+        if (typeof window.initPostHog === 'function') {
+          // @ts-ignore
+          window.initPostHog();
+        }
+      });
+    }
+
+    if (btnReject) {
+      btnReject.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'rejected');
+        hideBanner();
+      });
+    }
+  });
+</script>
