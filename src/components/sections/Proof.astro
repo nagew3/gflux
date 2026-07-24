@@ -1,0 +1,53 @@
+---
+import { proof, flags } from "../../config/siteContent";
+
+const showPilotDetails = flags.showPilotIdentity || import.meta.env.DEV;
+const showPartnerBlock = flags.showPartnerLogo || import.meta.env.DEV;
+---
+
+<section id="preuves" class="section-padding">
+  <div class="container-page">
+    <h2 class="text-section mb-12 max-w-measure">{proof.h2}</h2>
+
+    <div class="space-y-10 max-w-3xl">
+      <div class="border border-border-subtle rounded-lg-soft p-6 md:p-8">
+        <h3 class="text-lg font-semibold mb-3">{proof.diagnostic.h3}</h3>
+        <p class="text-text-secondary leading-relaxed mb-3">{proof.diagnostic.text}</p>
+        <p class="text-sm text-text-secondary italic">{proof.diagnostic.caveat}</p>
+      </div>
+
+      <div class="border border-border-subtle rounded-lg-soft p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-accent" aria-hidden="true"></span>
+          <h3 class="text-lg font-semibold">{proof.pilot.h3}</h3>
+        </div>
+        <p class="text-text-secondary leading-relaxed mb-4">{proof.pilot.publicText}</p>
+
+        {showPilotDetails && !flags.showPilotIdentity && (
+          <div class="placeholder-block text-left justify-start mb-4">
+            Identité du cabinet pilote à publier uniquement après autorisation écrite : {proof.pilot.context}
+          </div>
+        )}
+
+        <div class="bg-ink-light rounded-md-soft p-4">
+          <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Objectif à l'étude, non un résultat obtenu</p>
+          <p class="text-text-primary leading-relaxed text-sm">{proof.pilot.objective}</p>
+        </div>
+      </div>
+
+      {showPartnerBlock && (
+        flags.showPartnerLogo ? (
+          <div class="border border-border-subtle rounded-lg-soft p-6 md:p-8">
+            <h3 class="text-lg font-semibold mb-3">{proof.infrastructure.h3}</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">{proof.infrastructure.text}</p>
+            <img src={proof.infrastructure.partnerLogo} alt={proof.infrastructure.partnerName} class="h-8" loading="lazy" />
+          </div>
+        ) : (
+          <div class="placeholder-block">
+            Bloc infrastructure et sous-traitants masqué : en attente du nom, du logo autorisé et de la localisation validée du partenaire d'hébergement.
+          </div>
+        )
+      )}
+    </div>
+  </div>
+</section>

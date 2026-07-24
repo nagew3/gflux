@@ -1,0 +1,51 @@
+---
+import { CTA_LABEL, URL_CALENDLY_AUDIT } from "../config/siteContent";
+---
+
+<div
+  id="mobile-cta-bar"
+  class="lg:hidden fixed bottom-0 left-0 right-0 z-40 translate-y-full transition-transform duration-250 bg-bg-secondary border-t border-border-subtle"
+  style="padding-bottom: env(safe-area-inset-bottom, 0px);"
+>
+  <div class="px-4 py-3">
+    <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary w-full">
+      {CTA_LABEL}
+    </a>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById("mobile-cta-bar");
+  const hero = document.getElementById("accueil");
+  const footer = document.querySelector("footer");
+
+  if (bar && hero && footer && "IntersectionObserver" in window) {
+    let pastHero = false;
+    let nearFooter = false;
+
+    const update = () => {
+      const shouldShow = pastHero && !nearFooter;
+      bar.classList.toggle("translate-y-full", !shouldShow);
+    };
+
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          pastHero = !entry.isIntersecting;
+          update();
+        });
+      },
+      { threshold: 0 }
+    ).observe(hero);
+
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          nearFooter = entry.isIntersecting;
+          update();
+        });
+      },
+      { threshold: 0, rootMargin: "0px" }
+    ).observe(footer);
+  }
+</script>

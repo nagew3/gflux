@@ -1,0 +1,150 @@
+---
+import Logo from "./Logo.astro";
+import { navLinks, CTA_LABEL, URL_CALENDLY_AUDIT } from "../config/siteContent";
+---
+
+<header id="site-header" class="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center px-3 sm:px-4">
+  <div class="w-full max-w-5xl flex items-center justify-between gap-4 h-14 sm:h-16 pl-3 pr-2 sm:pl-4 sm:pr-2.5 rounded-full border border-border-subtle/70 bg-bg-primary/85 backdrop-blur-xl shadow-subtle transition-shadow duration-450">
+    <a href="#accueil" aria-label="GFlux, retour à l'accueil">
+      <Logo />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1" aria-label="Navigation principale">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          data-nav-link={link.href}
+          class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-black/[0.03] transition-all duration-250"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden lg:block">
+      <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary !py-2 !pl-5 !text-[13px]">
+        {CTA_LABEL}
+      </a>
+    </div>
+
+    <button
+      id="mobile-menu-toggle"
+      class="lg:hidden relative w-10 h-10 flex items-center justify-center text-text-primary"
+      aria-label="Ouvrir le menu de navigation"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="hamburger-line hamburger-line-top absolute w-5 h-[1.5px] bg-current rounded-full transition-transform duration-450 ease-[cubic-bezier(0.32,0.72,0,1)]"></span>
+      <span class="hamburger-line hamburger-line-bottom absolute w-5 h-[1.5px] bg-current rounded-full transition-transform duration-450 ease-[cubic-bezier(0.32,0.72,0,1)]"></span>
+    </button>
+  </div>
+</header>
+
+<div
+  id="mobile-menu"
+  class="lg:hidden fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl opacity-0 pointer-events-none transition-opacity duration-450"
+  aria-hidden="true"
+>
+  <nav class="h-full flex flex-col items-center justify-center gap-1 px-6" aria-label="Navigation mobile">
+    {navLinks.map((link, i) => (
+      <a
+        href={link.href}
+        class="mobile-nav-link text-2xl font-semibold text-text-primary py-3 opacity-0 translate-y-6 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+        style={`transition-delay: ${i * 60}ms`}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a
+      href={URL_CALENDLY_AUDIT}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-nav-link btn-primary mt-6 opacity-0 translate-y-6 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+      style={`transition-delay: ${navLinks.length * 60}ms`}
+    >
+      {CTA_LABEL}
+    </a>
+  </nav>
+</div>
+
+<style>
+  .hamburger-line-top {
+    transform: translateY(-3px);
+  }
+  .hamburger-line-bottom {
+    transform: translateY(3px);
+  }
+  .hamburger-line-top.is-x {
+    transform: translateY(0) rotate(45deg);
+  }
+  .hamburger-line-bottom.is-x {
+    transform: translateY(0) rotate(-45deg);
+  }
+  #mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #mobile-menu.is-open .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const lineTop = document.querySelector(".hamburger-line-top");
+  const lineBottom = document.querySelector(".hamburger-line-bottom");
+
+  function setMenuState(isOpen: boolean) {
+    if (!toggle || !menu) return;
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    menu.classList.toggle("is-open", isOpen);
+    menu.setAttribute("aria-hidden", String(!isOpen));
+    lineTop?.classList.toggle("is-x", isOpen);
+    lineBottom?.classList.toggle("is-x", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation"
+    );
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    setMenuState(!isOpen);
+  });
+
+  menu?.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => setMenuState(false));
+  });
+
+  // Repère de section active dans la navigation (orientation sur une page longue)
+  const navLinkEls = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+  const sections = [...navLinkEls]
+    .map((link) => document.getElementById((link.dataset.navLink || "").replace("#", "")))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (sections.length && "IntersectionObserver" in window) {
+    const setActive = (id: string) => {
+      navLinkEls.forEach((link) => {
+        const isActive = link.dataset.navLink === `#${id}`;
+        link.classList.toggle("text-accent", isActive);
+        link.classList.toggle("bg-black/[0.03]", isActive);
+        link.classList.toggle("text-text-secondary", !isActive);
+        if (isActive) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

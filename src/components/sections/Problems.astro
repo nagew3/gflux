@@ -1,0 +1,29 @@
+---
+import Icon from "../icons/Icon.astro";
+import { problems } from "../../config/siteContent";
+
+const icons = ["mail", "file", "bell", "receipt", "gauge"] as const;
+---
+
+<section id="problemes" class="section-padding bg-bg-secondary">
+  <div class="container-page">
+    <div class="max-w-measure mb-12">
+      <h2 class="text-section mb-4">{problems.h2}</h2>
+      <p class="text-text-secondary leading-relaxed">{problems.intro}</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+      {problems.items.map((item, i) => (
+        <div class="reveal">
+          <Icon name={icons[i]} class="icon-mark w-6 h-6 mb-5" />
+          <h3 class="text-base font-semibold mb-2 tracking-tight">{item.h3}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{item.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-14 pt-10 border-t border-border-subtle text-text-secondary leading-relaxed max-w-measure">
+      {problems.transition}
+    </p>
+  </div>
+</section>

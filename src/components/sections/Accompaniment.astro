@@ -1,0 +1,45 @@
+---
+import { accompaniment, CTA_LABEL, URL_CALENDLY_AUDIT } from "../../config/siteContent";
+---
+
+<section id="accompagnement" class="section-padding bg-bg-secondary">
+  <div class="container-page">
+    <div class="max-w-measure mb-12">
+      <h2 class="text-section mb-4">{accompaniment.h2}</h2>
+      <p class="text-text-secondary leading-relaxed">{accompaniment.intro}</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 border-t border-border-subtle">
+      {accompaniment.blocks.map((block, i) => (
+        <div class={`py-9 md:py-11 px-0 md:px-9 ${i > 0 ? "md:border-l border-border-subtle border-t md:border-t-0" : ""}`}>
+          <h3 class="text-lg font-semibold mb-6 tracking-tight">{block.h3}</h3>
+
+          <div class="space-y-5">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-text-secondary mb-1.5">Pour qui</p>
+              <p class="text-[15px] text-text-primary leading-relaxed">{block.for}</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-text-secondary mb-1.5">Objectif</p>
+              <p class="text-[15px] text-text-primary leading-relaxed">{block.objective}</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-text-secondary mb-1.5">Résultat</p>
+              <p class="text-[15px] text-text-primary leading-relaxed">{block.result}</p>
+            </div>
+          </div>
+
+          {block.mention && (
+            <p class="text-sm text-accent font-medium mt-6">{block.mention}</p>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary">
+        {CTA_LABEL}
+      </a>
+    </div>
+  </div>
+</section>

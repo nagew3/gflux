@@ -1,0 +1,36 @@
+---
+import HeroDiagram from "./HeroDiagram.astro";
+import { hero, CTA_LABEL, URL_CALENDLY_AUDIT } from "../../config/siteContent";
+---
+
+<section id="accueil" class="pt-20 pb-10 md:pt-28 md:pb-24">
+  <div class="container-page">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div>
+        <p class="eyebrow mb-3 sm:mb-4">{hero.eyebrow}</p>
+        <h1 class="text-hero tracking-tight mb-4 sm:mb-5">{hero.h1}</h1>
+        <p class="text-lg text-text-secondary leading-relaxed mb-6 sm:mb-8 max-w-measure">{hero.subtitle}</p>
+
+        <div class="flex flex-col items-start gap-3 mb-6 sm:mb-8">
+          <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary w-full sm:w-auto text-base">
+            {CTA_LABEL}
+          </a>
+          <p class="text-sm text-text-secondary">{hero.ctaMicrocopy}</p>
+        </div>
+
+        <ul class="hidden sm:flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-secondary">
+          {hero.markers.map((marker) => (
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+              {marker}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <HeroDiagram />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import { benefits } from "../../config/siteContent";
+---
+
+<section id="benefices" class="section-padding bg-bg-secondary">
+  <div class="container-page">
+    <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-10 lg:gap-16">
+      <div>
+        <h2 class="text-section mb-4">{benefits.h2}</h2>
+        <p class="text-text-secondary leading-relaxed">{benefits.intro}</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-x-8 gap-y-8">
+        {benefits.items.map((item, i) => (
+          <div class="reveal pl-5 border-l border-accent/40">
+            <p class="text-xl font-accent-serif text-accent mb-1.5">0{i + 1}</p>
+            <h3 class="text-base font-semibold mb-2 tracking-tight">{item.h3}</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

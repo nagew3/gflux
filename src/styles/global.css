@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Police auto-hébergée (Plus Jakarta Sans, licence OFL, fichiers dans /public/fonts) */
+/* Pas de chargement depuis un domaine tiers : conforme aux exigences du brief. */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/PlusJakartaSans.woff2") format("woff2-variations"),
+       url("/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/PlusJakartaSans-Italic.woff2") format("woff2-variations"),
+       url("/fonts/PlusJakartaSans-Italic.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Palette de marque : navy dominant (ancre gflux.fr), orange en accent ponctuel, texture chaleureuse inspirée de tasteskill.dev */
+  --color-bg-primary: #F7F2E9;
+  --color-bg-secondary: #FFFFFF;
+  --color-text-primary: #0F1A2B;
+  --color-text-secondary: #5B6472;
+  --color-accent: #E65100;
+  --color-accent-dark: #B03D00;
+  --color-accent-light: #FBE7D6;
+  --color-border: #E4DACB;
+  --color-ink: #0F1A2B;
+  --color-ink-hover: #1C3050;
+  --color-ink-light: #E9ECF2;
+
+  /* Test en cours : Manrope (display/UI) + Playfair Display italic (accents éditoriaux) */
+  --font-sans: "Manrope", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,58 +48,202 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   body {
-    @apply font-sans text-text-primary bg-white;
+    @apply font-sans text-text-primary;
+    font-size: 16px;
+    line-height: 1.65;
     overflow-x: hidden;
+    background-color: var(--color-bg-primary);
+    background-image:
+      radial-gradient(1000px circle at 10% -10%, rgba(15, 26, 43, 0.07), transparent 60%),
+      radial-gradient(800px circle at 100% 8%, rgba(230, 81, 0, 0.05), transparent 55%),
+      radial-gradient(900px circle at 45% 105%, rgba(15, 26, 43, 0.06), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-attachment: fixed, fixed, fixed, fixed;
+  }
+
+  h1, h2, h3 {
+    @apply text-text-primary;
+    letter-spacing: -0.015em;
+  }
+
+  h1, h2 {
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
   }
 
   ::selection {
-    @apply bg-accent-blue/20 text-deep-tech;
+    background: var(--color-accent-light);
+    color: var(--color-text-primary);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2
-           px-8 py-4 rounded-2xl
-           bg-deep-tech text-white font-display font-semibold text-base
-           transition-all duration-300 ease-out
-           hover:bg-accent-blue hover:shadow-glow hover:-translate-y-0.5
-           active:translate-y-0
-           focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2.5
+           pl-7 pr-2.5 py-2.5 rounded-full
+           bg-ink text-white font-semibold text-base tracking-tight
+           transition-all duration-[600ms] ease-[cubic-bezier(0.32,0.72,0,1)]
+           hover:bg-ink-hover hover:-translate-y-px hover:shadow-[0_12px_28px_-10px_rgba(15,26,43,0.5)]
+           active:scale-[0.98] active:translate-y-0
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+    min-height: 44px;
+  }
+
+  .btn-primary::after {
+    content: "";
+    width: 1.75em;
+    height: 1.75em;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.18);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), background-color 0.3s ease;
+  }
+
+  .btn-primary:hover::after {
+    background-color: rgba(255, 255, 255, 0.28);
+    transform: translate(2px, -2px) scale(1.06);
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           px-8 py-4 rounded-2xl
-           bg-white text-deep-tech font-display font-semibold text-base
-           border-2 border-deep-tech/10
-           transition-all duration-300 ease-out
-           hover:border-accent-blue hover:text-accent-blue hover:shadow-soft
-           focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+           px-7 py-3.5 rounded-full
+           bg-transparent text-text-primary font-semibold text-base tracking-tight
+           border border-border-subtle
+           transition-all duration-250 ease-out
+           hover:border-accent hover:text-accent hover:-translate-y-px
+           active:scale-[0.98] active:translate-y-0;
+    min-height: 44px;
+  }
+
+  .btn-invert {
+    @apply relative inline-flex items-center justify-center gap-2.5
+           pl-7 pr-2.5 py-2.5 rounded-full
+           bg-white text-ink font-semibold text-base tracking-tight
+           transition-all duration-[600ms] ease-[cubic-bezier(0.32,0.72,0,1)]
+           hover:bg-ink-light hover:-translate-y-px
+           active:scale-[0.98] active:translate-y-0;
+    min-height: 44px;
+  }
+
+  .btn-invert::after {
+    content: "";
+    width: 1.75em;
+    height: 1.75em;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: rgba(15, 26, 43, 0.08);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F1A2B' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), background-color 0.3s ease;
+  }
+
+  .btn-invert:hover::after {
+    transform: translate(2px, -2px) scale(1.06);
+  }
+
+  .container-page {
+    @apply max-w-content mx-auto px-5 sm:px-8;
   }
 
   .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-24 md:py-32;
   }
 
-  .container-narrow {
-    @apply max-w-6xl mx-auto px-5 sm:px-8;
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[12px] font-semibold text-accent uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.4rem 0.9rem 0.4rem 0.7rem;
+    border-radius: 9999px;
+    background: var(--color-accent-light);
+    border: 1px solid rgba(230, 81, 0, 0.16);
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: var(--color-accent);
+  }
+
+  /* Double-bezel : coque extérieure + cœur intérieur pour les visuels premium */
+  .bezel-shell {
+    @apply p-1.5 rounded-xl-soft;
+    background: rgba(15, 26, 43, 0.04);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(15, 26, 43, 0.06);
+  }
+
+  .bezel-core {
+    @apply bg-bg-secondary shadow-subtle;
+    border-radius: calc(1.75rem - 0.375rem);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(15, 26, 43, 0.04), 0 4px 20px -6px rgba(15, 26, 43, 0.07);
   }
 
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .reveal.active {
+  .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
 
-  .badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full
-           text-xs font-semibold tracking-wide uppercase;
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .placeholder-block {
+    @apply border border-dashed border-border-subtle bg-white/40 text-text-secondary
+           flex items-center justify-center text-center text-sm p-6 rounded-lg-soft;
+  }
+
+  /* Pictogramme épuré : icône seule, sans pastille de fond */
+  .icon-mark {
+    @apply text-accent;
+    stroke-width: 1.25;
+  }
+
+  /* Accent éditorial : serif italique pour les moments de citation / mise en avant */
+  .font-accent-serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 }

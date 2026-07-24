@@ -1,0 +1,21 @@
+---
+import { ctaCentral, CTA_LABEL, URL_CALENDLY_AUDIT } from "../../config/siteContent";
+---
+
+<section id="audit" class="section-padding bg-ink">
+  <div class="container-page max-w-2xl text-center">
+    <h2 class="text-section text-white mb-5">{ctaCentral.h2}</h2>
+    <p class="text-white/75 leading-relaxed mb-8">{ctaCentral.text}</p>
+
+    <a
+      href={URL_CALENDLY_AUDIT}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-invert"
+    >
+      {CTA_LABEL}
+    </a>
+    <p class="text-sm text-white/60 mt-4">{ctaCentral.microcopy}</p>
+    <p class="text-xs text-white/55 mt-6 max-w-md mx-auto">{ctaCentral.note}</p>
+  </div>
+</section>

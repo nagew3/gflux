@@ -1,14 +1,81 @@
 ---
+import {
+  seo,
+  faq as faqContent,
+  EMAIL_GFLUX,
+  TELEPHONE_GFLUX,
+  RAISON_SOCIALE,
+  URL_LOGO_GFLUX,
+  URL_LINKEDIN_GFLUX,
+} from "../config/siteContent";
+
 export interface Props {
   title?: string;
   description?: string;
+  includeFaqSchema?: boolean;
 }
 
 const {
-  title = "GFlux — Automatisation IA pour Dirigeants d'ESN",
-  description = "Éradiquez 10h de tâches administratives par semaine grâce à notre architecture IA propriétaire. Audit offert pour les 5 prochaines ESN."
+  title = seo.title,
+  description = seo.description,
+  includeFaqSchema = false,
 } = Astro.props;
+
+const ogImageUrl = new URL("/og-gflux.jpg", seo.canonical).toString();
+
+const jsonLdGraph: Record<string, unknown>[] = [
+  {
+    "@type": "Organization",
+    "@id": `${seo.canonical}#organization`,
+    name: "GFlux",
+    legalName: "[RAISON_SOCIALE]",
+    url: seo.canonical,
+    logo: URL_LOGO_GFLUX,
+    email: EMAIL_GFLUX,
+    telephone: TELEPHONE_GFLUX,
+    sameAs: [URL_LINKEDIN_GFLUX],
+  },
+  {
+    "@type": "WebSite",
+    "@id": `${seo.canonical}#website`,
+    url: seo.canonical,
+    name: "GFlux",
+    inLanguage: "fr-FR",
+    publisher: { "@id": `${seo.canonical}#organization` },
+  },
+  {
+    "@type": "Service",
+    name: "Automatisation IA sur mesure pour cabinets d'expertise comptable",
+    provider: { "@id": `${seo.canonical}#organization` },
+    areaServed: "France",
+    audience: {
+      "@type": "Audience",
+      audienceType: "cabinets d'expertise comptable indépendants de 5 à 30 collaborateurs",
+    },
+    description: seo.description,
+  },
+];
+
+if (includeFaqSchema) {
+  jsonLdGraph.push({
+    "@type": "FAQPage",
+    mainEntity: faqContent.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  });
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": jsonLdGraph,
+};
 ---
+
 <!doctype html>
 <html lang="fr">
   <head>
@@ -16,25 +83,65 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={seo.canonical} />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
+    <!-- Police auto-hébergée (variable, poids 200-800) : préchargée pour éviter le flash de police -->
+    <link rel="preload" href="/fonts/PlusJakartaSans.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Fonts -->
+    <!-- Test en cours : paire typographique Manrope / Playfair Display via Google Fonts (à auto-héberger si validée) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
 
     <title>{title}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="GFlux" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={seo.ogImageAlt} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="antialiased">
+    <a
+      href="#contenu"
+      class="fixed top-2 left-2 z-[100] -translate-y-20 focus:translate-y-0 bg-accent text-white text-sm font-semibold px-4 py-2.5 rounded-full transition-transform duration-150"
+    >
+      Aller au contenu principal
+    </a>
     <slot />
   </body>
 </html>
 
 <style is:global>
   @import '../styles/global.css';
+
+  html {
+    scroll-padding-top: 104px;
+  }
+
+  section[id] {
+    scroll-margin-top: 104px;
+  }
 </style>
