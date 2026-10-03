@@ -41,3 +41,21 @@ goals.gawentech.fr {
                 Referrer-Policy "strict-origin-when-cross-origin"
         }
 }
+
+kuma.monitoring.gflux.fr {
+        reverse_proxy uptime-kuma:3001
+}
+
+beszel.monitoring.gflux.fr {
+        reverse_proxy beszel:8090
+}
+
+links.gflux.fr {
+        @links {
+                remote_ip 92.145.30.66
+        }
+
+        handle @links {
+                reverse_proxy linkwarden:3000
+        }
+}

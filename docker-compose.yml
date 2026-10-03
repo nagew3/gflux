@@ -10,6 +10,7 @@ services:
     container_name: gflux-web
     networks:
       - caddy-net
+      - monitoring
 
 volumes:
   caddy_data:
@@ -17,3 +18,5 @@ volumes:
 networks:
   caddy-net:
     name: caddy-net
+  monitoring:
+    external: true
