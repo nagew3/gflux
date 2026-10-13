@@ -1,0 +1,18 @@
+---
+export interface Props {
+  text: string;
+  author: string;
+  tone?: "default" | "invert";
+  class?: string;
+}
+
+const { text, author, tone = "default", class: className = "" } = Astro.props;
+const invert = tone === "invert";
+---
+
+<figure class={`border-l-2 border-accent pl-4 ${className}`}>
+  <blockquote>
+    <p class={`font-accent-serif leading-snug ${invert ? "text-2xl text-white" : "text-lg text-text-primary"}`}>« {text} »</p>
+  </blockquote>
+  <figcaption class={`text-xs mt-2 ${invert ? "text-white/60" : "text-text-secondary"}`}>{author}</figcaption>
+</figure>

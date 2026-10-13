@@ -1,53 +1,55 @@
 ---
-import { proof, flags } from "../../config/siteContent";
-
-const showPilotDetails = flags.showPilotIdentity || import.meta.env.DEV;
-const showPartnerBlock = flags.showPartnerLogo || import.meta.env.DEV;
+import { proof } from "../../config/siteContent";
 ---
 
-<section id="preuves" class="section-padding">
+<section id="preuves" class="section-padding bg-bg-secondary">
   <div class="container-page">
-    <h2 class="text-section mb-12 max-w-measure">{proof.h2}</h2>
+    <div class="max-w-3xl mb-16">
+      <p class="kicker">05 · Preuves</p>
+      <h2 class="text-section">{proof.h2}</h2>
+    </div>
 
-    <div class="space-y-10 max-w-3xl">
-      <div class="border border-border-subtle rounded-lg-soft p-6 md:p-8">
-        <h3 class="text-lg font-semibold mb-3">{proof.diagnostic.h3}</h3>
-        <p class="text-text-secondary leading-relaxed mb-3">{proof.diagnostic.text}</p>
-        <p class="text-sm text-text-secondary italic">{proof.diagnostic.caveat}</p>
-      </div>
-
-      <div class="border border-border-subtle rounded-lg-soft p-6 md:p-8">
-        <div class="flex items-center gap-2 mb-3">
-          <span class="w-2 h-2 rounded-full bg-accent" aria-hidden="true"></span>
-          <h3 class="text-lg font-semibold">{proof.pilot.h3}</h3>
-        </div>
-        <p class="text-text-secondary leading-relaxed mb-4">{proof.pilot.publicText}</p>
-
-        {showPilotDetails && !flags.showPilotIdentity && (
-          <div class="placeholder-block text-left justify-start mb-4">
-            Identité du cabinet pilote à publier uniquement après autorisation écrite : {proof.pilot.context}
+    <div class="grid lg:grid-cols-12 gap-5">
+      <div class="reveal lg:col-span-7">
+        <div class="bezel-shell bezel-fill">
+          <div class="bezel-core p-7 md:p-10 flex flex-col">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight">{proof.partner.h3}</h3>
+            <p class="text-text-secondary leading-relaxed mb-10 max-w-measure">{proof.partner.text}</p>
+            <div class="mt-auto pt-6 border-t border-border-subtle">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-2">{proof.partner.resultLabel}</p>
+              <p class="numeral text-3xl md:text-4xl leading-tight">{proof.partner.result}</p>
+            </div>
           </div>
-        )}
-
-        <div class="bg-ink-light rounded-md-soft p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Objectif à l'étude, non un résultat obtenu</p>
-          <p class="text-text-primary leading-relaxed text-sm">{proof.pilot.objective}</p>
         </div>
       </div>
 
-      {showPartnerBlock && (
-        flags.showPartnerLogo ? (
-          <div class="border border-border-subtle rounded-lg-soft p-6 md:p-8">
-            <h3 class="text-lg font-semibold mb-3">{proof.infrastructure.h3}</h3>
-            <p class="text-text-secondary leading-relaxed mb-4">{proof.infrastructure.text}</p>
-            <img src={proof.infrastructure.partnerLogo} alt={proof.infrastructure.partnerName} class="h-8" loading="lazy" />
+      <div class="reveal lg:col-span-5" style="--reveal-delay: 90ms">
+        <div class="bezel-shell bezel-fill">
+          <div class="bezel-core bezel-core-ink p-7 md:p-10">
+            <p class="numeral text-7xl md:text-8xl mb-6" aria-hidden="true">16</p>
+            <h3 class="text-xl font-semibold text-white mb-3 tracking-tight">{proof.survey.h3}</h3>
+            <p class="text-[15px] text-white/70 leading-relaxed">{proof.survey.text}</p>
           </div>
-        ) : (
-          <div class="placeholder-block">
-            Bloc infrastructure et sous-traitants masqué : en attente du nom, du logo autorisé et de la localisation validée du partenaire d'hébergement.
+        </div>
+      </div>
+
+      <div class="reveal lg:col-span-12">
+        <div class="bezel-shell">
+          <div class="bezel-core p-7 md:p-10 grid md:grid-cols-[auto_minmax(0,1fr)] gap-8 md:gap-12 items-start">
+            <div class="flex md:flex-col items-center md:items-start gap-5">
+              <div class="placeholder-block !rounded-full !p-0 w-24 h-24 md:w-28 md:h-28 flex-shrink-0 text-xs">{proof.founder.photo}</div>
+              <div>
+                <p class="font-semibold text-text-primary">{proof.founder.name}</p>
+                <p class="text-sm text-text-secondary">{proof.founder.role}</p>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-[11px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-4">{proof.founder.h3}</h3>
+              <p class="font-accent-serif text-xl md:text-2xl text-text-primary leading-snug max-w-3xl">{proof.founder.bio}</p>
+            </div>
           </div>
-        )
-      )}
+        </div>
+      </div>
     </div>
   </div>
 </section>

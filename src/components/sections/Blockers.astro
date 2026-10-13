@@ -1,28 +1,37 @@
 ---
-import Icon from "../icons/Icon.astro";
+import Quote from "../Quote.astro";
 import { blockers } from "../../config/siteContent";
-
-const icons = ["link-broken", "repeat", "alert", "lock"] as const;
 ---
 
-<section id="blocages" class="section-padding bg-bg-secondary">
+<section id="blocages" class="section-padding">
   <div class="container-page">
-    <h2 class="text-section mb-12 max-w-measure">{blockers.h2}</h2>
+    <div class="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)] gap-12 lg:gap-24">
+      <div class="lg:sticky lg:top-32 lg:self-start">
+        <p class="kicker">02 · Blocages</p>
+        <h2 class="text-section mb-5">{blockers.h2}</h2>
+        <p class="text-text-secondary leading-relaxed">{blockers.intro}</p>
+      </div>
 
-    <div class="border-t border-border-subtle divide-y divide-border-subtle">
-      {blockers.items.map((item, i) => (
-        <div class="reveal py-8 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10">
-          <Icon name={icons[i]} class="icon-mark w-6 h-6 flex-shrink-0" />
-          <div class="sm:max-w-lg">
-            <h3 class="text-base font-semibold mb-1.5 tracking-tight">{item.h3}</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">{item.text}</p>
-          </div>
+      <div>
+        <div class="border-t border-border-subtle divide-y divide-border-subtle">
+          {blockers.items.map((item, i) => (
+            <div class="reveal py-9 flex items-start gap-6 sm:gap-9">
+              <p class="numeral text-4xl md:text-5xl flex-shrink-0 w-12 md:w-16">{i + 1}</p>
+              <div>
+                <h3 class="text-lg font-semibold mb-2 tracking-tight">{item.h3}</h3>
+                <p class="text-[15px] text-text-secondary leading-relaxed">{item.text}</p>
+                {item.quote && <Quote {...item.quote} class="mt-6" />}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
 
-    <p class="mt-10 text-text-secondary leading-relaxed max-w-measure font-medium">
-      {blockers.conclusion}
-    </p>
+        <div class="reveal bezel-shell mt-6">
+          <p class="bezel-core p-7 md:p-9 text-lg md:text-xl text-text-primary font-medium leading-snug tracking-tight">
+            {blockers.conclusion}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

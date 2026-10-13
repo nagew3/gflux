@@ -3,13 +3,17 @@ import { closing, CTA_LABEL, URL_CALENDLY_AUDIT } from "../../config/siteContent
 ---
 
 <section id="closing" class="section-padding">
-  <div class="container-page max-w-2xl text-center">
-    <h2 class="text-section mb-5">{closing.h2}</h2>
-    <p class="text-text-secondary leading-relaxed mb-8">{closing.text}</p>
+  <div class="container-page">
+    <div class="reveal bezel-shell max-w-4xl mx-auto">
+      <div class="bezel-core px-6 py-14 md:px-16 md:py-20 text-center">
+        <h2 class="text-section mb-5">{closing.h2}</h2>
+        <p class="text-lg text-text-secondary leading-relaxed mb-9 max-w-xl mx-auto">{closing.text}</p>
 
-    <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary">
-      {CTA_LABEL}
-    </a>
-    <p class="text-sm text-text-secondary mt-4">{closing.reassurance}</p>
+        <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary">
+          {CTA_LABEL}
+        </a>
+        <p class="text-base font-medium text-text-primary mt-5">{closing.reassurance}</p>
+      </div>
+    </div>
   </div>
 </section>

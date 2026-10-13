@@ -211,21 +211,68 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(28px);
+    filter: blur(6px);
+    transition:
+      opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1) var(--reveal-delay, 0ms),
+      transform 0.9s cubic-bezier(0.32, 0.72, 0, 1) var(--reveal-delay, 0ms),
+      filter 0.9s cubic-bezier(0.32, 0.72, 0, 1) var(--reveal-delay, 0ms);
   }
 
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
       transform: none;
+      filter: none;
       transition: none;
     }
+  }
+
+  /* Repère de section : numéro + libellé, discret, au-dessus des H2 */
+  .kicker {
+    @apply flex items-center gap-3 text-[11px] font-semibold uppercase text-text-secondary mb-5;
+    letter-spacing: 0.18em;
+  }
+
+  .kicker::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  .kicker-invert {
+    @apply text-white/60;
+  }
+
+  /* Grand numéral éditorial (serif italique) */
+  .numeral {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-accent);
+  }
+
+  /* Carte double-bezel pleine hauteur (grilles bento) */
+  .bezel-shell.bezel-fill {
+    @apply h-full flex;
+  }
+
+  .bezel-fill > .bezel-core {
+    @apply w-full;
+  }
+
+  .bezel-core-ink {
+    background: var(--color-ink);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 12px 32px -12px rgba(15, 26, 43, 0.35);
   }
 
   .placeholder-block {

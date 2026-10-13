@@ -1,29 +1,54 @@
 ---
+import Icon from "../icons/Icon.astro";
 import { method } from "../../config/siteContent";
+
+const icons = ["layers", "shield-check", "lock"] as const;
+// Cascade : chaque pilier descend d'un cran sur desktop
+const offsets = ["", "lg:mt-10", "lg:mt-20"];
 ---
 
-<section id="methode" class="section-padding">
+<section id="methode" class="section-padding bg-bg-secondary">
   <div class="container-page">
-    <h2 class="text-section mb-12 max-w-measure">{method.h2}</h2>
+    <div class="max-w-3xl mb-16">
+      <p class="kicker">03 · Méthode</p>
+      <h2 class="text-section mb-5">{method.h2}</h2>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-measure">{method.intro}</p>
+    </div>
 
-    <ol class="grid md:grid-cols-5 gap-8 md:gap-4">
-      {method.steps.map((step, i) => (
-        <li class="reveal relative">
-          <div class="flex md:flex-col items-start gap-4 md:gap-3">
-            <span class="flex-shrink-0 w-9 h-9 rounded-full border border-accent/40 text-accent flex items-center justify-center font-semibold text-sm">
-              {i + 1}
-            </span>
-            <div>
-              <h3 class="text-base font-semibold mb-1.5 tracking-tight">{step.h3}</h3>
-              <p class="text-sm text-text-secondary leading-relaxed">{step.text}</p>
+    <div class="grid lg:grid-cols-3 gap-5 mb-20 lg:mb-28 lg:items-start">
+      {method.pillars.map((pillar, i) => (
+        <div class={`reveal ${offsets[i]}`} style={`--reveal-delay: ${i * 90}ms`}>
+          <div class="bezel-shell">
+            <div class="bezel-core p-7 md:p-9">
+              <div class="flex items-center justify-between mb-8">
+                <span class="w-11 h-11 rounded-full bg-accent-light text-accent flex items-center justify-center">
+                  <Icon name={icons[i]} class="w-5 h-5" />
+                </span>
+                <p class="numeral text-3xl opacity-40">0{i + 1}</p>
+              </div>
+              <h3 class="text-lg font-semibold mb-3 tracking-tight">{pillar.h3}</h3>
+              <p class="text-[15px] text-text-secondary leading-relaxed">{pillar.text}</p>
             </div>
           </div>
-        </li>
+        </div>
       ))}
-    </ol>
+    </div>
 
-    <p class="mt-12 pt-8 border-t border-border-subtle text-sm text-text-secondary max-w-measure">
-      {method.delayNote}
-    </p>
+    <div class="reveal bezel-shell">
+      <div class="bezel-core !bg-ink-light p-7 md:p-12 grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-10 lg:gap-16">
+        <div>
+          <h3 class="text-2xl font-semibold tracking-tight leading-tight mb-5">{method.scopeH3}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{method.scopeNote}</p>
+        </div>
+        <ul class="divide-y divide-ink/10 border-y border-ink/10">
+          {method.scopeItems.map((item) => (
+            <li class="flex items-start gap-4 py-4">
+              <Icon name="check" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+              <span class="text-text-primary font-medium leading-snug">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
 </section>

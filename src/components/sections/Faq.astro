@@ -4,8 +4,11 @@ import { faq } from "../../config/siteContent";
 ---
 
 <section id="faq" class="section-padding bg-bg-secondary">
-  <div class="container-page max-w-3xl">
-    <h2 class="text-section mb-10">{faq.h2}</h2>
+  <div class="container-page grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.3fr)] gap-10 lg:gap-24">
+    <div class="lg:sticky lg:top-32 lg:self-start">
+      <p class="kicker">07 · FAQ</p>
+      <h2 class="text-section">{faq.h2}</h2>
+    </div>
 
     <div class="faq-list border-t border-border-subtle">
       {faq.items.map((item, i) => (
@@ -13,7 +16,7 @@ import { faq } from "../../config/siteContent";
           <h3>
             <button
               type="button"
-              class="faq-trigger w-full flex items-center justify-between gap-4 py-5 text-left font-medium text-text-primary"
+              class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left text-lg font-medium text-text-primary tracking-tight"
               aria-expanded="false"
               aria-controls={`faq-panel-${i}`}
               id={`faq-trigger-${i}`}
@@ -26,10 +29,10 @@ import { faq } from "../../config/siteContent";
             id={`faq-panel-${i}`}
             role="region"
             aria-labelledby={`faq-trigger-${i}`}
-            class="faq-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-250 ease-out"
+            class="faq-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-450 ease-[cubic-bezier(0.32,0.72,0,1)]"
           >
             <div class="overflow-hidden">
-              <p class="text-text-secondary leading-relaxed pb-5 pr-8">{item.answer}</p>
+              <p class="text-text-secondary leading-relaxed pb-6 pr-8 max-w-measure">{item.answer}</p>
             </div>
           </div>
         </div>

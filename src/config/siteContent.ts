@@ -2,452 +2,306 @@
 // Tous les champs entre crochets, ex. "[URL_CALENDLY_AUDIT]", sont des placeholders
 // à remplacer par les informations réelles avant mise en production.
 
-export const CTA_LABEL = "Réserver un audit gratuit";
+export const CTA_LABEL = "Réserver mon audit offert";
 
 // Placeholders de conversion et coordonnées ---------------------------------
 export const URL_CALENDLY_AUDIT = "[URL_CALENDLY_AUDIT]";
-export const EMAIL_GFLUX = "[EMAIL_GFLUX]";
-export const TELEPHONE_GFLUX = "[TELEPHONE_GFLUX]";
-export const ADRESSE_GFLUX = "[ADRESSE_GFLUX]";
-export const URL_LINKEDIN_GFLUX = "[URL_LINKEDIN_GFLUX]";
-export const URL_LINKEDIN_FONDATEUR = "[URL_LINKEDIN_FONDATEUR]";
-export const RAISON_SOCIALE = "[RAISON_SOCIALE]";
+export const EMAIL_GFLUX = "[email]";
+export const TELEPHONE_GFLUX = "[06 XX XX XX XX]";
+export const ADRESSE_GFLUX = "Grenoble, France";
+export const URL_LINKEDIN_GFLUX = "[lien]";
+export const RAISON_SOCIALE = "GFlux, entreprise individuelle";
+export const SIRET = "[XXX XXX XXX XXXXX]";
 export const URL_LOGO_GFLUX = "[URL_LOGO_GFLUX]";
-export const HEBERGEUR_SITE = "[HEBERGEUR_SITE]";
-
-// Drapeaux de visibilité (section 8 du brief) --------------------------------
-// Tant que ces informations ne sont pas validées, les blocs correspondants
-// restent masqués en production et affichés en pointillés en aperçu (DEV).
-export const flags = {
-  showPilotIdentity: false,
-  showPilotMetrics: false,
-  showPartnerLogo: false,
-  showFounderBio: false,
-  showDemo: false,
-  showHostingMention: false,
-};
 
 // Navigation ------------------------------------------------------------
 export const navLinks = [
   { label: "Problèmes", href: "#problemes" },
-  { label: "Solution", href: "#solution" },
   { label: "Méthode", href: "#methode" },
   { label: "Preuves", href: "#preuves" },
+  { label: "Audit offert", href: "#audit" },
   { label: "FAQ", href: "#faq" },
 ];
 
 // SEO ---------------------------------------------------------------------
 export const seo = {
-  title: "GFlux | Automatisation IA sur mesure pour cabinets comptables",
+  title: "GFlux | L'IA sur mesure pour cabinets d'expertise comptable",
   description:
-    "GFlux conçoit des automatisations IA sur mesure pour les cabinets d'expertise comptable indépendants, avec validation humaine et traçabilité.",
+    "GFlux prépare les mails clients, relances et restitutions des cabinets d'expertise comptable. Validation humaine, données hébergées en France. Audit offert.",
   canonical: "https://gflux.fr/",
-  ogImageAlt: "GFlux, automatisation IA sur mesure pour cabinets d'expertise comptable.",
+  ogImageAlt: "GFlux, l'IA sur mesure pour cabinets d'expertise comptable.",
 };
 
 // Section 1 - Hero ---------------------------------------------------------
 export const hero = {
-  eyebrow: "Automatisation IA sur mesure pour cabinets d'expertise comptable indépendants",
+  eyebrow: "Pour les experts-comptables qui veulent retrouver du temps pour le conseil.",
   h1: "L'IA qui libère l'expert-comptable, pas celle qui le remplace.",
   subtitle:
-    "GFlux automatise les tâches répétitives de votre cabinet, avec validation humaine et traçabilité à chaque étape.",
-  ctaMicrocopy:
-    "30 minutes, sans engagement. Quatre audits gratuits par mois.",
+    "GFlux prépare vos réponses aux clients, vos relances de pièces et vos restitutions à partir de vos outils. Vos collaborateurs relisent et valident. Vous récupérez le temps du conseil.",
+  ctaMicrocopy: "4 audits offerts par mois. 45 à 60 minutes en visio, sans engagement.",
   markers: [
-    "Automatisation sur mesure",
-    "Validation humaine systématique",
-    "Architecture et flux documentés",
+    "Construit sur les process réels de votre cabinet.",
+    "Rien ne part chez un client sans validation d'un collaborateur.",
+    "Données hébergées en France.",
   ],
-  diagram: [
-    "E-mails, pièces, fichiers et logiciels comptables",
-    "Orchestration GFlux",
-    "Préparation par l'IA",
-    "Validation par un collaborateur",
-    "Restitution ou action dans l'outil concerné",
-  ],
-  diagramAlt:
-    "Schéma d'un processus GFlux allant des données du cabinet à une sortie validée par un collaborateur.",
 };
 
-// Section 2 - Problèmes / qualification -------------------------------------
+// Auteur des verbatims (taille du cabinet à compléter)
+const QUOTE_AUTHOR = "Expert-comptable, cabinet indépendant [taille]";
+
+// Section 2 - Problèmes -----------------------------------------------------
 export const problems = {
-  h2: "Quand l'opérationnel absorbe le temps de conseil",
+  h2: "Vous n'avez pas choisi ce métier pour vivre dans votre boîte mail.",
   intro:
-    "Ces tâches restent indispensables, mais leur répétition laisse moins de temps pour conseiller et piloter le cabinet.",
+    "Il y a des tâches qui absorbent vos journées sans qu'on les voie. Une par une, elles paraissent petites. Mises bout à bout, elles prennent toute la place du conseil.",
   items: [
     {
-      h3: "Répondre aux e-mails clients",
-      text: "Lire, prioriser, retrouver le contexte, rédiger une réponse proche d'une précédente.",
+      h3: "Passer ses matinées dans sa boîte mail.",
+      text: "Trente, quarante, cinquante mails clients par jour. Pour chacun, il faut retrouver le dossier, le contexte et la règle qui s'applique, avant d'écrire trois lignes.",
+      quote: { text: "Je suis un psycho de la boîte mail.", author: QUOTE_AUTHOR },
     },
     {
-      h3: "Préparer les restitutions",
-      text: "D'un export à un tableau, puis à une présentation commentée manuellement.",
+      h3: "Courir après les mêmes pièces, chaque mois.",
+      text: "Relancer trois fois le même client pour le même relevé, en restant aimable, en pleine période de bilans.",
     },
     {
-      h3: "Relancer les pièces manquantes",
-      text: "Au bon moment, avec le bon contexte, sans dégrader la relation client.",
+      h3: "Passer une demi-journée sur chaque restitution.",
+      text: "Copier les chiffres de Pennylane dans Excel, refaire les mêmes graphiques, recoller le tout dans PowerPoint. Tout ça pour un dirigeant qui veut surtout savoir quoi faire de ses chiffres.",
     },
     {
-      h3: "Traiter les saisies restantes",
-      text: "Notes de frais, refacturations, pièces complexes difficiles à standardiser.",
+      h3: "Découvrir le retard à J-15 de l'échéance.",
+      text: "Faire le tour des dossiers un par un pour savoir où en est chacun, parce qu'aucune vue d'ensemble n'existe.",
     },
     {
-      h3: "Superviser les délais",
-      text: "Vérifier l'avancement dossier par dossier, faute d'une vue d'ensemble claire.",
+      h3: "Ressaisir ce qui existe déjà.",
+      text: "La même information dans le mail, dans le logiciel et dans le fichier de suivi. Chaque ressaisie est une erreur possible et dix minutes perdues.",
     },
   ],
-  transition:
-    "Des processus dispersés entre plusieurs outils créent des ressaisies et des pertes de contexte.",
 };
 
-// Section 3 - Story / origine -------------------------------------------
-export const origin = {
-  h2: "Pourquoi GFlux se concentre sur l'expertise comptable",
-  text: "La difficulté se loge entre les logiciels : récupérer l'information, appliquer les règles du cabinet, obtenir une validation, remettre le résultat au bon endroit. GFlux construit ces passerelles au cas par cas.",
-  belief:
-    "L'IA doit préparer, structurer et accélérer le travail. L'expert-comptable conserve le jugement métier, la relation client et la décision finale.",
-  vision:
-    "Automatiser un processus utile, mesurer son adoption, puis étendre ce qui fonctionne.",
-  qualification:
-    "Pour les cabinets indépendants de 5 à 30 collaborateurs qui veulent du temps de conseil, sans nouvelle plateforme générique à imposer aux équipes.",
-};
-
-// Section 4 - Blocages ----------------------------------------------------
+// Section 3 - Blocages ----------------------------------------------------
 export const blockers = {
-  h2: "Quatre blocages entretiennent la charge opérationnelle",
+  h2: "Pourquoi vous travaillez plus sans conseiller plus.",
+  intro:
+    "Le problème vient rarement de vos équipes. Il vient de trois blocages qu'aucun logiciel ne règle seul.",
   items: [
     {
-      h3: "L'information reste dispersée",
-      text: "E-mail, logiciel comptable, fichier de validation : le contexte se reconstitue à la main.",
+      h3: "Vos outils ne se parlent pas.",
+      text: "Le mail, Pennylane, le fichier Excel de suivi : chacun garde sa part de l'information. C'est un collaborateur qualifié qui fait le lien, à la main, toute la journée.",
     },
     {
-      h3: "Les mêmes gestes sont répétés",
-      text: "Copier, classer, reformuler, relancer : des opérations prévisibles sur des profils qualifiés.",
+      h3: "Les logiciels standard s'arrêtent là où vos règles commencent.",
+      text: "Le brouillon de réponse automatique, il faut le reprendre à chaque fois : il ignore le dossier, les pièges fiscaux, la façon dont vous parlez à ce client.",
+      quote: {
+        text: "On a beau avoir le meilleur système et ses relances automatisées, rien ne remplace un mail ou un appel en sachant comment parler au client.",
+        author: QUOTE_AUTHOR,
+      },
     },
     {
-      h3: "Le contrôle intervient trop tard",
-      text: "Erreurs et retards détectés à la restitution, quand une alerte plus tôt aurait suffi.",
-    },
-    {
-      h3: "La confidentialité reste difficile à intégrer",
-      text: "Données utilisées, accès, durée de conservation, validation : à préciser pour chaque automatisation.",
+      h3: "L'IA est déjà dans votre cabinet, sans cadre.",
+      text: "Vos collaborateurs utilisent sûrement déjà ChatGPT pour gagner du temps. Avec des données clients dedans, sur des serveurs dont personne ne sait où ils sont.",
     },
   ],
   conclusion:
-    "Automatiser une tâche isolée ne suffit pas : le gain dépend de tout le flux, jusqu'à la restitution.",
+    "Ajouter un logiciel de plus ne règle rien. Ce qui libère du temps, c'est de relier vos outils existants avec vos règles à vous.",
 };
 
-// Section 5 - Solution ------------------------------------------------------
-export const solution = {
-  h2: "Une automatisation construite autour d'un processus réel",
-  intro:
-    "GFlux part d'une tâche prioritaire : processus cartographié, règles formalisées, points de contrôle définis, puis orchestration autour des outils déjà en place.",
-  whatH3: "Ce que GFlux peut automatiser",
-  whatCaveat: "Selon la faisabilité technique, les accès disponibles et les règles du cabinet.",
-  whatItems: [
-    "Préparation d'une restitution client",
-    "Première trame narrative à faire relire",
-    "Classement et brouillons d'e-mails",
-    "Relances de pièces manquantes",
-    "Saisies ou refacturations répétitives",
-    "Alertes de supervision et de délais",
-    "Préparation des rendez-vous de bilan",
-    "Organisation documentaire et onboarding",
-  ],
-  notH3: "Ce que GFlux ne vend pas",
-  notText:
-    "Ni un logiciel standard à paramétrer seul, ni un agent autonome sans contrôle. GFlux ne remplace pas le logiciel comptable existant.",
-  resultH3: "Le résultat attendu",
-  resultText:
-    "Un workflow documenté, intégré à l'environnement du cabinet, avec validations identifiées, équipe formée et suivi dans le temps.",
-  demo: {
-    title: "Exemple de restitution automatisée",
-    caption:
-      "Démonstration à remplacer par une restitution réelle et autorisée. Les données utilisées devront être fictives ou correctement anonymisées.",
-    poster: "[POSTER_DEMO_RESTITUTION]",
-    videoUrl: "[URL_VIDEO_DEMO_RESTITUTION]",
-    transcript: "[TRANSCRIPTION_DEMO]",
-  },
-};
-
-// Section 6 - Expertise -----------------------------------------------------
-export const expertise = {
-  h2: "Métier, architecture et contrôle humain dans le même chantier",
-  intro:
-    "Une automatisation fiable ne se limite pas au choix d'un modèle d'IA : données, accès, sous-traitants, conservation, journalisation et validations doivent être documentés.",
-  items: [
-    {
-      h3: "Architecture sur mesure",
-      text: "Construite autour des pratiques du cabinet. Compatibilité vérifiée pendant l'audit.",
-    },
-    {
-      h3: "Validation humaine",
-      text: "Toute sortie engageante reste en attente de validation. L'IA prépare, le collaborateur décide.",
-    },
-    {
-      h3: "Traçabilité",
-      text: "Étapes, actions et validations journalisées pour faciliter le contrôle.",
-    },
-    {
-      h3: "Conformité intégrée à la conception",
-      text: "Secret professionnel, RGPD, règlement européen sur l'IA, déontologie de l'Ordre : selon l'usage concerné.",
-    },
-  ],
-  note: "Cadrage technique et contractuel lié à la prestation. Ne remplace pas l'avis du conseil juridique ou du DPO du cabinet.",
-  founder: {
-    photo: "[PHOTO_FONDATEUR]",
-    name: "[NOM_FONDATEUR]",
-    role: "Fondateur de GFlux",
-    bio: "[BIOGRAPHIE_FONDATEUR_VALIDEE]",
-    expertise: "[EXPERTISES_FONDATEUR_VALIDÉES]",
-    linkedin: URL_LINKEDIN_FONDATEUR,
-  },
-};
-
-// Section 7 - Méthode ---------------------------------------------------
+// Section 4 - La Méthode GFlux ----------------------------------------------
 export const method = {
-  h2: "Comment se déroule un chantier GFlux",
-  steps: [
-    {
-      h3: "Audit gratuit",
-      text: "30 minutes pour identifier la tâche prioritaire, les outils et les points de validation.",
-    },
-    {
-      h3: "Proposition",
-      text: "Périmètre, architecture, responsabilités, planning et investissement.",
-    },
-    {
-      h3: "Construction et tests",
-      text: "Prototype construit et testé avec les utilisateurs. Chaque étape est validée.",
-    },
-    {
-      h3: "Formation",
-      text: "Les équipes apprennent à utiliser et contrôler le workflow. Documentation remise au cabinet.",
-    },
-    {
-      h3: "Maintenance et amélioration continue",
-      text: "Suivi, ajustements selon les usages. De nouveaux processus peuvent suivre.",
-    },
-  ],
-  delayNote:
-    "Un premier prototype peut être livré en quelques semaines ; le calendrier exact est confirmé dans la proposition.",
-};
-
-// Section 8 - Accompagnement --------------------------------------------
-export const accompaniment = {
-  h2: "Un accompagnement sur mesure, structuré en trois temps",
+  h2: "La Méthode GFlux. L'IA prépare, vos collaborateurs valident, rien ne part sans contrôle.",
   intro:
-    "Pas de forfaits standardisés : le périmètre est défini après analyse du processus, des outils et des contraintes du cabinet.",
-  blocks: [
+    "Du sur-mesure, construit sur vos process réels. On part de la façon dont votre cabinet travaille déjà, on ne vous demande pas de changer vos habitudes.",
+  pillars: [
     {
-      h3: "Audit R1 gratuit",
-      for: "Cabinets indépendants de 5 à 30 collaborateurs.",
-      objective: "Comprendre le processus, les irritants, les points de contrôle.",
-      result: "Une première lecture de la priorité et des prochaines étapes.",
-      mention: "Quatre audits gratuits ouverts par mois.",
+      h3: "Construit sur vos règles, pas sur un modèle générique.",
+      text: "Votre façon de répondre à un client, vos vérifications, votre trame de restitution vous appartiennent. Un outil générique ne les devine pas, donc vous retouchez tout. Un système construit sur vos règles vous rend un brouillon que vous n'avez plus qu'à signer.",
     },
     {
-      h3: "Construction sur mesure",
-      for: "Processus, accès et faisabilité déjà validés.",
-      objective: "Construire, tester et documenter l'automatisation retenue.",
-      result: "Un prototype, puis une version déployée selon la proposition.",
+      h3: "Un collaborateur valide avant chaque envoi.",
+      text: "C'est votre signature et votre responsabilité qui sont engagées. L'IA prépare, votre collaborateur relit et décide. Vos clients gardent un interlocuteur humain qui connaît leur dossier.",
     },
     {
-      h3: "Accompagnement mensuel",
-      for: "Cabinets équipés d'un workflow GFlux.",
-      objective: "Maintenance, hébergement si inclus, formation, amélioration continue.",
-      result: "Un système suivi, documenté et ajusté dans le temps.",
+      h3: "Vos données restent en France, chaque étape est tracée.",
+      text: "Le secret professionnel ne se négocie pas. Vous savez où sont vos données, qui y accède et ce qui a été fait. Vous pouvez le montrer à un client comme à un contrôle.",
     },
   ],
+  scopeH3: "Ce que la Méthode GFlux prend en charge dans votre cabinet.",
+  scopeItems: [
+    "Vos mails clients triés, avec une réponse préparée dans votre ton.",
+    "Vos restitutions préparées directement à partir de Pennylane.",
+    "Vos relances de pièces envoyées au bon moment, avec le bon contexte.",
+    "Vos rendez-vous de bilan préparés à l'avance.",
+    "Vos échéances suivies, avec une alerte avant qu'il soit trop tard.",
+    "Vos saisies et refacturations répétitives.",
+    "L'arrivée de vos nouveaux clients, sans rien oublier.",
+  ],
+  scopeNote:
+    "Et bien d'autres cas propres à votre cabinet. Liste non exhaustive : si une tâche se répète, on en parle pendant l'audit.",
 };
 
-// Section 9 - Preuves et crédibilité --------------------------------------
-export const proof = {
-  h2: "Ce qui est déjà établi, et ce qui reste à valider",
-  diagnostic: {
-    h3: "Diagnostic exploratoire auprès de huit experts-comptables",
-    text: "Diagnostic mené en juin et juillet 2026. Sujets récurrents : e-mails clients, restitution, production comptable, supervision.",
-    caveat: "Aide à prioriser les sujets, sans valeur d'étude représentative de la profession.",
-  },
-  pilot: {
-    h3: "Chantier pilote de restitution client en cours",
-    context: "[IDENTITE_PUBLIQUE_DU_CABINET_PILOTE_OU_CABINET_ANONYMISE]",
-    authorization: "[AUTORISATION_ECRITE_PILOTE]",
-    city: "[VILLE_PILOTE]",
-    size: "[TAILLE_PILOTE]",
-    software: "[LOGICIEL_PILOTE]",
-    initialTime: "[TEMPS_INITIAL_MESURE_ET_VALIDÉ]",
-    publicText:
-      "GFlux travaille avec un cabinet indépendant sur un prototype de restitution client, en cours de construction et de validation terrain.",
-    objective:
-      "Objectif à l'étude : 50 à 60 % de temps de préparation en moins. Pas encore un résultat obtenu.",
-  },
-  infrastructure: {
-    h3: "Infrastructure et sous-traitants",
-    text: "Hébergement, modèles et sous-traitants documentés pour chaque chantier selon les contraintes du cabinet.",
-    partnerName: "[NOM_PARTENAIRE_HEBERGEMENT]",
-    partnerLogo: "[LOGO_PARTENAIRE_HEBERGEMENT]",
-    partnerAuthorization: "[AUTORISATION_LOGO_PARTENAIRE]",
-    location: "[LOCALISATION_VALIDEE_DES_TRAITEMENTS]",
-    certifications: "[CERTIFICATIONS_HEBERGEUR_VALIDÉES]",
-  },
-};
-
-// Section 10 - Bénéfices ---------------------------------------------------
+// Section 5 - Bénéfices ---------------------------------------------------
 export const benefits = {
-  h2: "Les bénéfices recherchés pour le cabinet",
-  intro:
-    "Évalués processus par processus, selon le périmètre, la qualité des données et l'adoption par les équipes.",
+  h2: "Plus de temps pour le conseil, c'est plus d'honoraires et des clients qui restent.",
   items: [
     {
-      h3: "Plus de temps pour le conseil",
-      text: "Moins d'énergie à préparer, recopier ou reformuler des informations déjà disponibles.",
+      h3: "Du conseil facturé, au lieu d'heures perdues.",
+      text: "La production est au forfait, le conseil se facture. Chaque heure récupérée peut devenir un rendez-vous de pilotage ou une mission de conseil en plus.",
     },
     {
-      h3: "Des processus plus clairs",
-      text: "Étapes et validations formalisées, plutôt que dépendantes des habitudes individuelles.",
+      h3: "Des clients qui ont une réponse dans la journée.",
+      text: "« Injoignable » est le reproche qui revient le plus souvent dans les avis laissés aux cabinets. Une réponse rapide et juste, c'est souvent tout ce que le client retient.",
+      quote: { text: "Le client ne voit pas le reste.", author: QUOTE_AUTHOR },
     },
     {
-      h3: "Un contrôle humain visible",
-      text: "Sorties importantes soumises à une personne identifiée, avec un historique utile au suivi.",
-    },
-    {
-      h3: "Une charge opérationnelle mieux maîtrisée",
-      text: "Tâches répétitives traitées plus régulièrement : supervision et continuité facilitées.",
+      h3: "Des clients qui restent, et qui vous recommandent.",
+      text: "Un dirigeant qui comprend ses chiffres et se sent suivi ne change pas de cabinet. Il en parle autour de lui.",
     },
   ],
 };
 
-// Section 11 - Comparatif ---------------------------------------------------
-export const comparison = {
-  h2: "Comparer les modèles d'accompagnement, sans caricature",
+// Section 6 - Preuves -------------------------------------------------------
+export const proof = {
+  h2: "On ne travaille qu'avec des cabinets d'expertise comptable. C'est pour ça que ça marche.",
+  partner: {
+    h3: "Un cabinet partenaire l'utilise déjà.",
+    text: "Un cabinet indépendant partenaire utilise la Méthode GFlux pour préparer ses restitutions client.",
+    resultLabel: "Résultat mesuré",
+    result: "[X heures → Y heures par restitution]",
+  },
+  survey: {
+    h3: "16 experts-comptables nous ont décrit leurs journées.",
+    text: "Entre juin et septembre 2026, 16 experts-comptables nous ont expliqué ce qui leur prend le plus de temps. La boîte mail arrive en premier, devant la production et la supervision. La Méthode GFlux est construite sur ces réponses.",
+  },
+  founder: {
+    h3: "Le fondateur",
+    photo: "[photo]",
+    name: "Gawen François",
+    role: "Fondateur de GFlux",
+    bio: "J'ai passé des journées dans un cabinet d'expertise comptable à décortiquer une restitution, clic par clic, du logiciel jusqu'au PowerPoint. Ce que j'en retiens : vos équipes savent faire, elles manquent de temps. Mon rôle est de récupérer les heures que la machine peut faire, pour les rendre au conseil.",
+  },
+};
+
+// Section 7 - L'audit offert ------------------------------------------------
+export const audit = {
+  h2: "En une heure, vous savez quelle tâche vous coûte le plus cher.",
   intro:
-    "Le bon choix dépend du processus, du niveau d'autonomie recherché et des ressources du cabinet.",
-  columns: ["Traitement interne", "Outil logiciel standard", "Prestataire IA généraliste", "GFlux"],
+    "L'audit offert, c'est 45 à 60 minutes en visio pour regarder ensemble comment travaille votre cabinet. Vous repartez avec :",
+  takeaways: [
+    "La tâche qui coûte le plus d'heures à votre cabinet, identifiée.",
+    "Son coût réel, chiffré en heures par mois et en euros par an.",
+    "Ce qui peut être pris en charge, et ce qui doit rester entre les mains de vos équipes.",
+  ],
+  reasons: [
+    {
+      h3: "Pourquoi c'est offert",
+      text: "On ne construit rien sans avoir vu votre façon de travailler. Et si votre cabinet n'a pas besoin de nous, mieux vaut le savoir en une heure.",
+    },
+    {
+      h3: "Pourquoi maintenant",
+      text: "Le meilleur moment pour mettre un système en place, c'est avant la saison des bilans, pas pendant.",
+    },
+  ],
+  microcopy: "4 audits offerts par mois. Quand ils sont pris, le suivant passe au mois d'après.",
+  afterH3: "Et après l'audit ?",
+  after: [
+    {
+      title: "Une proposition claire.",
+      text: "Ce sur quoi on intervient, en combien de temps vous voyez les résultats, et combien ça coûte.",
+    },
+    {
+      title: "Un système construit avec vous.",
+      text: "On le construit sur vos dossiers, on le teste avec vos collaborateurs, on le valide ensemble.",
+    },
+    {
+      title: "On ne vous laisse pas seuls.",
+      text: "Vos équipes sont formées, et le système s'améliore avec vos retours et l'évolution de l'IA.",
+    },
+  ],
+};
+
+// Section 7 (suite) - Comparatif --------------------------------------------
+export const comparison = {
+  h3: "Faire seul, prendre un logiciel, ou passer par GFlux.",
+  columns: ["En interne", "Logiciel standard", "Méthode GFlux"],
   rows: [
     {
-      criterion: "Adaptation aux processus",
-      values: [
-        "Selon les habitudes et la disponibilité des équipes.",
-        "Fonctionnalités définies par l'éditeur.",
-        "Selon l'expérience du prestataire.",
-        "Workflow défini après audit du processus comptable.",
-      ],
+      criterion: "Adapté à vos règles",
+      values: ["Oui, mais tout à la main", "Ce que l'éditeur a prévu", "Construit sur vos process"],
     },
     {
-      criterion: "Intégration aux outils existants",
-      values: [
-        "Ressaisies manuelles fréquentes.",
-        "Connecteurs selon l'éditeur.",
-        "Compatibilité à vérifier.",
-        "Accès techniques vérifiés avant proposition.",
-      ],
+      criterion: "Relié à vos outils",
+      values: ["Par copier-coller", "Selon les connecteurs", "Branché sur vos outils existants"],
     },
     {
       criterion: "Validation humaine",
-      values: [
-        "Présente, mais peu formalisée.",
-        "Selon les fonctionnalités disponibles.",
-        "Selon l'architecture proposée.",
-        "Prévue avant toute sortie engageante.",
-      ],
+      values: ["Informelle", "Selon le logiciel", "Avant chaque envoi"],
     },
     {
-      criterion: "Documentation des flux de données",
-      values: [
-        "Variable selon l'organisation.",
-        "Fournie par l'éditeur.",
-        "Selon le niveau d'accompagnement.",
-        "Sources, traitements et validations documentés.",
-      ],
+      criterion: "Vos données",
+      values: ["Souvent dans ChatGPT gratuit", "Chez l'éditeur", "Hébergées en France, tracées"],
     },
     {
-      criterion: "Formation et maintenance",
-      values: [
-        "Portées par le cabinet.",
-        "Support défini par l'abonnement.",
-        "Selon le contrat.",
-        "Prévues dans l'accompagnement.",
-      ],
+      criterion: "Suivi dans le temps",
+      values: ["Repose sur vous", "Support standard", "Formation et amélioration continue"],
     },
   ],
 };
 
-// Section 12 - CTA central --------------------------------------------------
-export const ctaCentral = {
-  h2: "Commençons par la tâche qui vous coûte le plus de temps",
-  text: "L'audit examine un processus prioritaire, les outils et les validations nécessaires, pour déterminer si une automatisation sur mesure est pertinente à ce stade.",
-  microcopy: "Environ 30 minutes. Sans engagement. Quatre audits gratuits ouverts par mois.",
-  note: "Ne saisissez aucune donnée confidentielle concernant vos propres clients dans le formulaire.",
-};
-
-// Section 13 - FAQ ------------------------------------------------------
+// Section 8 - FAQ -------------------------------------------------------
 export const faq = {
-  h2: "Questions fréquentes",
+  h2: "Les questions qu'on nous pose avant de réserver.",
   items: [
     {
-      question: "Devons-nous changer de logiciel comptable ?",
+      question: "Les données de mes clients sont-elles protégées ?",
       answer:
-        "Non, GFlux travaille en priorité autour de l'existant. La compatibilité dépend des API et des accès disponibles : elle est vérifiée pendant l'audit.",
+        "Oui. Elles sont hébergées en France et réduites au strict nécessaire, anonymisées quand c'est possible. Chaque projet précise qui accède à quoi et combien de temps les données sont gardées. Votre DPO ou votre conseil peut tout vérifier.",
     },
     {
-      question: "L'IA peut-elle envoyer un e-mail ou une restitution sans validation ?",
+      question: "Faut-il changer de logiciel comptable ?",
       answer:
-        "Non. Toute sortie susceptible d'engager le cabinet reste en attente de validation humaine avant envoi.",
+        "Non. La Méthode GFlux se branche sur vos outils actuels. La compatibilité est vérifiée pendant l'audit.",
     },
     {
-      question: "Comment les données du cabinet sont-elles protégées ?",
+      question: "L'IA peut-elle envoyer un mail ou une restitution sans que personne ne la relise ?",
       answer:
-        "Chaque chantier précise les données nécessaires, les accès, les sous-traitants, les lieux de traitement, la conservation et les mesures de sécurité, selon le processus retenu.",
+        "Non. Tout ce qui part chez un client est validé par un collaborateur avant l'envoi.",
     },
     {
-      question: "Les données sont-elles anonymisées ?",
+      question: "Mes clients vont-ils se retrouver face à un robot ?",
       answer:
-        "Cela dépend du workflow. GFlux réduit les données au strict nécessaire et applique, selon le cas, une pseudonymisation ou une anonymisation techniquement justifiée.",
+        "Non. L'IA travaille en coulisses, elle prépare. Vos clients continuent de parler à votre équipe, qui leur répond simplement plus vite.",
     },
     {
-      question: "Que contient l'audit gratuit ?",
+      question: "Combien ça coûte ?",
       answer:
-        "30 minutes pour cerner une tâche prioritaire, les outils, les personnes impliquées, les validations nécessaires et les prochaines étapes.",
+        "Ça dépend de la tâche et de votre cabinet, donc on ne donne pas de prix au hasard. Après l'audit, vous recevez une proposition avec le périmètre, le délai et l'investissement.",
     },
     {
-      question: "Combien de temps faut-il pour obtenir un premier prototype ?",
+      question: "Combien de temps ça va demander à mon équipe ?",
       answer:
-        "Le délai varie selon le processus et les données disponibles. Souvent quelques semaines ; le calendrier exact est confirmé après l'audit.",
+        "L'audit, puis quelques échanges pour valider vos règles et tester le système. On s'adapte à votre calendrier, pas l'inverse.",
     },
     {
-      question: "Que comprend l'accompagnement après le déploiement ?",
+      question: "Vous garantissez un temps gagné ?",
       answer:
-        "Maintenance, hébergement, formation, documentation et amélioration continue, selon ce qui est précisé dans la proposition.",
-    },
-    {
-      question: "Comment GFlux aborde-t-elle le RGPD, le secret professionnel et le règlement européen sur l'IA ?",
-      answer:
-        "Ces contraintes sont intégrées au cadrage du chantier : rôles, sous-traitants, flux et sécurité documentés. Le cabinet reste libre de faire valider le dispositif par son DPO ou son conseil juridique.",
-    },
-    {
-      question: "GFlux garantit-elle un pourcentage de temps gagné ?",
-      answer:
-        "Non. GFlux intervient en obligation de moyens : les gains sont mesurés sur le processus concerné, sans résultat garanti identique pour tous les cabinets.",
-    },
-    {
-      question: "Quel est le prix de l'accompagnement ?",
-      answer:
-        "Le périmètre et l'investissement sont définis après l'audit. Aucun prix standard n'est affiché sur le site.",
+        "Non, et méfiez-vous de ceux qui le font. Le gain est chiffré pendant l'audit et mesuré sur votre propre process.",
     },
   ],
 };
 
-// Section 14 - Closing ----------------------------------------------------
+// Closing -----------------------------------------------------------------
 export const closing = {
-  h2: "Libérez du temps de conseil, une automatisation à la fois",
-  text: "Commencez par un processus répétitif, délimité et mesurable, puis étendez l'automatisation lorsque le terrain le justifie.",
-  reassurance: "Quatre audits gratuits ouverts par mois. Environ 30 minutes. Sans engagement.",
+  h2: "Commencez par la tâche qui vous coûte le plus cher.",
+  text: "Une tâche, un système, un résultat mesuré. On élargit ensuite si ça vaut le coup.",
+  reassurance: "4 audits offerts par mois. 45 à 60 minutes en visio, sans engagement.",
 };
 
 // Footer --------------------------------------------------------------------
 export const footer = {
-  tagline: "Automatisation IA sur mesure pour cabinets d'expertise comptable indépendants.",
+  tagline: "L'IA qui libère l'expert-comptable, pas celle qui le remplace.",
+  founder: "Gawen François, fondateur",
+  legalMention: `${RAISON_SOCIALE}. SIRET : ${SIRET}`,
+  hostingMention: "Données hébergées en France.",
   legalLinks: [
     { label: "Mentions légales", href: "/mentions-legales" },
     { label: "Politique de confidentialité", href: "/politique-de-confidentialite" },

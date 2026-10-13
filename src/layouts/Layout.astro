@@ -28,7 +28,7 @@ const jsonLdGraph: Record<string, unknown>[] = [
     "@type": "Organization",
     "@id": `${seo.canonical}#organization`,
     name: "GFlux",
-    legalName: "[RAISON_SOCIALE]",
+    legalName: RAISON_SOCIALE,
     url: seo.canonical,
     logo: URL_LOGO_GFLUX,
     email: EMAIL_GFLUX,
@@ -45,12 +45,12 @@ const jsonLdGraph: Record<string, unknown>[] = [
   },
   {
     "@type": "Service",
-    name: "Automatisation IA sur mesure pour cabinets d'expertise comptable",
+    name: "IA sur mesure pour cabinets d'expertise comptable",
     provider: { "@id": `${seo.canonical}#organization` },
     areaServed: "France",
     audience: {
       "@type": "Audience",
-      audienceType: "cabinets d'expertise comptable indépendants de 5 à 30 collaborateurs",
+      audienceType: "cabinets d'expertise comptable",
     },
     description: seo.description,
   },

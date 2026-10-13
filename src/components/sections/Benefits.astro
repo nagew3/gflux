@@ -1,24 +1,27 @@
 ---
+import Quote from "../Quote.astro";
 import { benefits } from "../../config/siteContent";
 ---
 
-<section id="benefices" class="section-padding bg-bg-secondary">
+<section id="benefices" class="section-padding">
   <div class="container-page">
-    <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-10 lg:gap-16">
-      <div>
-        <h2 class="text-section mb-4">{benefits.h2}</h2>
-        <p class="text-text-secondary leading-relaxed">{benefits.intro}</p>
-      </div>
+    <div class="max-w-3xl mb-16">
+      <p class="kicker">04 · Bénéfices</p>
+      <h2 class="text-section">{benefits.h2}</h2>
+    </div>
 
-      <div class="grid sm:grid-cols-2 gap-x-8 gap-y-8">
-        {benefits.items.map((item, i) => (
-          <div class="reveal pl-5 border-l border-accent/40">
-            <p class="text-xl font-accent-serif text-accent mb-1.5">0{i + 1}</p>
-            <h3 class="text-base font-semibold mb-2 tracking-tight">{item.h3}</h3>
-            <p class="text-sm text-text-secondary leading-relaxed">{item.text}</p>
-          </div>
-        ))}
-      </div>
+    <div class="grid md:grid-cols-3 border-t border-border-subtle">
+      {benefits.items.map((item, i) => (
+        <div
+          class={`reveal py-10 md:py-12 md:px-10 first:md:pl-0 last:md:pr-0 ${i > 0 ? "border-t md:border-t-0 md:border-l border-border-subtle" : ""}`}
+          style={`--reveal-delay: ${i * 90}ms`}
+        >
+          <p class="numeral text-5xl md:text-6xl mb-8">0{i + 1}</p>
+          <h3 class="text-lg font-semibold mb-3 tracking-tight">{item.h3}</h3>
+          <p class="text-[15px] text-text-secondary leading-relaxed">{item.text}</p>
+          {item.quote && <Quote {...item.quote} class="mt-6" />}
+        </div>
+      ))}
     </div>
   </div>
 </section>

@@ -1,35 +1,37 @@
 ---
-import HeroDiagram from "./HeroDiagram.astro";
+import Icon from "../icons/Icon.astro";
 import { hero, CTA_LABEL, URL_CALENDLY_AUDIT } from "../../config/siteContent";
+
+const icons = ["layers", "shield-check", "lock"] as const;
 ---
 
-<section id="accueil" class="pt-20 pb-10 md:pt-28 md:pb-24">
+<section id="accueil" class="pt-28 pb-16 md:pt-40 md:pb-28">
   <div class="container-page">
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.85fr)] gap-12 lg:gap-20 items-end">
       <div>
-        <p class="eyebrow mb-3 sm:mb-4">{hero.eyebrow}</p>
-        <h1 class="text-hero tracking-tight mb-4 sm:mb-5">{hero.h1}</h1>
-        <p class="text-lg text-text-secondary leading-relaxed mb-6 sm:mb-8 max-w-measure">{hero.subtitle}</p>
+        <p class="eyebrow mb-5 sm:mb-7">{hero.eyebrow}</p>
+        <h1 class="text-hero tracking-tight mb-6 sm:mb-7">{hero.h1}</h1>
+        <p class="text-lg md:text-xl text-text-secondary leading-relaxed mb-8 sm:mb-10 max-w-measure">{hero.subtitle}</p>
 
-        <div class="flex flex-col items-start gap-3 mb-6 sm:mb-8">
+        <div class="flex flex-col items-start gap-4">
           <a href={URL_CALENDLY_AUDIT} target="_blank" rel="noopener noreferrer" class="btn-primary w-full sm:w-auto text-base">
             {CTA_LABEL}
           </a>
-          <p class="text-sm text-text-secondary">{hero.ctaMicrocopy}</p>
+          <p class="text-base font-medium text-text-primary">{hero.ctaMicrocopy}</p>
         </div>
+      </div>
 
-        <ul class="hidden sm:flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-secondary">
-          {hero.markers.map((marker) => (
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true"></span>
-              {marker}
+      <div class="reveal bezel-shell">
+        <ul class="bezel-core divide-y divide-border-subtle px-6 md:px-8">
+          {hero.markers.map((marker, i) => (
+            <li class="flex items-start gap-4 py-6">
+              <span class="flex-shrink-0 w-10 h-10 rounded-full bg-accent-light text-accent flex items-center justify-center">
+                <Icon name={icons[i]} class="w-[18px] h-[18px]" />
+              </span>
+              <span class="text-[15px] font-medium text-text-primary leading-snug pt-2">{marker}</span>
             </li>
           ))}
         </ul>
-      </div>
-
-      <div class="reveal">
-        <HeroDiagram />
       </div>
     </div>
   </div>

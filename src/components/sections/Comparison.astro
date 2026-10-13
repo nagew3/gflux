@@ -1,67 +1,66 @@
 ---
 import { comparison } from "../../config/siteContent";
+
+const highlight = comparison.columns.length - 1;
 ---
 
-<section id="comparatif" class="section-padding">
-  <div class="container-page">
-    <div class="max-w-measure mb-12">
-      <h2 class="text-section mb-4">{comparison.h2}</h2>
-      <p class="text-text-secondary leading-relaxed">{comparison.intro}</p>
-    </div>
+<div id="comparatif">
+  <h3 class="text-section mb-10 max-w-measure">{comparison.h3}</h3>
 
-    <!-- Desktop / tablet : tableau -->
-    <div class="hidden md:block overflow-x-auto">
-      <table class="w-full border-collapse">
-        <thead>
-          <tr>
-            <th scope="col" class="text-left text-xs font-semibold uppercase tracking-wide text-text-secondary p-5 pb-4 border-b border-border-subtle w-1/5">Critère</th>
-            {comparison.columns.map((col, i) => (
-              <th
-                scope="col"
-                class={`text-left text-xs font-semibold uppercase tracking-wide p-5 pb-4 border-b ${i === 3 ? "text-accent border-accent" : "text-text-secondary border-border-subtle"}`}
-              >
-                {col}
-              </th>
+  <!-- Desktop / tablet : tableau -->
+  <div class="reveal hidden md:block bezel-shell">
+    <div class="bezel-core p-4 lg:p-6 overflow-x-auto">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr>
+          <th scope="col" class="text-left text-xs font-semibold uppercase tracking-wide text-text-secondary p-5 pb-4 border-b border-border-subtle w-1/4">Critère</th>
+          {comparison.columns.map((col, i) => (
+            <th
+              scope="col"
+              class={`text-left text-xs font-semibold uppercase tracking-wide p-5 pb-4 border-b ${i === highlight ? "text-accent border-accent" : "text-text-secondary border-border-subtle"}`}
+            >
+              {col}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {comparison.rows.map((row, ri) => (
+          <tr class="border-b border-border-subtle last:border-b-0">
+            <th scope="row" class="text-left text-[15px] font-medium text-text-primary p-5 align-top">{row.criterion}</th>
+            {row.values.map((value, i) => (
+              <td class={`text-[15px] p-5 align-top text-text-secondary leading-relaxed ${i === highlight ? `bg-ink-light !text-text-primary font-medium ${ri === 0 ? "rounded-t-lg-soft" : ""} ${ri === comparison.rows.length - 1 ? "rounded-b-lg-soft" : ""}` : ""}`}>
+                {value}
+              </td>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {comparison.rows.map((row, ri) => (
-            <tr class="border-b border-border-subtle last:border-b-0">
-              <th scope="row" class="text-left text-[15px] font-medium text-text-primary p-5 align-top">{row.criterion}</th>
-              {row.values.map((value, i) => (
-                <td class={`text-[15px] p-5 align-top text-text-secondary leading-relaxed ${i === 3 ? `bg-ink-light text-text-primary ${ri === 0 ? "rounded-t-lg-soft" : ""} ${ri === comparison.rows.length - 1 ? "rounded-b-lg-soft" : ""}` : ""}`}>
-                  {value}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Mobile : accordéon par critère -->
-    <div class="md:hidden divide-y divide-border-subtle border-t border-b border-border-subtle">
-      {comparison.rows.map((row) => (
-        <details class="group py-2">
-          <summary class="flex items-center justify-between gap-4 py-3 font-medium text-text-primary cursor-pointer list-none">
-            {row.criterion}
-            <span class="text-accent transition-transform duration-250 group-open:rotate-180" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </span>
-          </summary>
-          <dl class="pb-4 space-y-3">
-            {row.values.map((value, i) => (
-              <div class={i === 3 ? "bg-ink-light rounded-md-soft p-3" : ""}>
-                <dt class={`text-xs font-semibold uppercase tracking-wide mb-1 ${i === 3 ? "text-accent" : "text-text-secondary"}`}>
-                  {comparison.columns[i]}
-                </dt>
-                <dd class="text-sm text-text-secondary leading-relaxed">{value}</dd>
-              </div>
-            ))}
-          </dl>
-        </details>
-      ))}
+        ))}
+      </tbody>
+    </table>
     </div>
   </div>
-</section>
+
+  <!-- Mobile : accordéon par critère -->
+  <div class="md:hidden divide-y divide-border-subtle border-t border-b border-border-subtle">
+    {comparison.rows.map((row) => (
+      <details class="group py-2">
+        <summary class="flex items-center justify-between gap-4 py-3 font-medium text-text-primary cursor-pointer list-none">
+          {row.criterion}
+          <span class="text-accent transition-transform duration-250 group-open:rotate-180" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <dl class="pb-4 space-y-3">
+          {row.values.map((value, i) => (
+            <div class={i === highlight ? "bg-ink-light rounded-md-soft p-3" : ""}>
+              <dt class={`text-xs font-semibold uppercase tracking-wide mb-1 ${i === highlight ? "text-accent" : "text-text-secondary"}`}>
+                {comparison.columns[i]}
+              </dt>
+              <dd class="text-sm text-text-secondary leading-relaxed">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
+    ))}
+  </div>
+</div>

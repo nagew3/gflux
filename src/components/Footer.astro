@@ -6,20 +6,16 @@ import {
   TELEPHONE_GFLUX,
   ADRESSE_GFLUX,
   URL_LINKEDIN_GFLUX,
-  URL_LINKEDIN_FONDATEUR,
-  HEBERGEUR_SITE,
-  flags,
 } from "../config/siteContent";
 
 const currentYear = new Date().getFullYear();
-const showHosting = flags.showHostingMention || import.meta.env.DEV;
 ---
 
 <footer class="bg-ink text-white/70">
   <div class="container-page py-14">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
       <div class="lg:col-span-2">
-        <a href="#accueil" aria-label="GFlux, retour à l'accueil" class="inline-block mb-4">
+        <a href="/#accueil" aria-label="GFlux, retour à l'accueil" class="inline-block mb-4">
           <Logo variant="light" />
         </a>
         <p class="text-sm leading-relaxed max-w-xs">{footer.tagline}</p>
@@ -28,17 +24,17 @@ const showHosting = flags.showHostingMention || import.meta.env.DEV;
       <div>
         <p class="text-xs font-semibold uppercase tracking-wide text-white/50 mb-3">Contact</p>
         <ul class="space-y-2 text-sm">
-          <li><a href={`mailto:${EMAIL_GFLUX}`} class="hover:text-white transition-colors duration-250">{EMAIL_GFLUX}</a></li>
-          <li><a href={`tel:${TELEPHONE_GFLUX}`} class="hover:text-white transition-colors duration-250">{TELEPHONE_GFLUX}</a></li>
+          <li class="text-white">{footer.founder}</li>
           <li>{ADRESSE_GFLUX}</li>
+          <li>Tél. : <a href={`tel:${TELEPHONE_GFLUX}`} class="hover:text-white transition-colors duration-250">{TELEPHONE_GFLUX}</a></li>
+          <li><a href={`mailto:${EMAIL_GFLUX}`} class="hover:text-white transition-colors duration-250">{EMAIL_GFLUX}</a></li>
         </ul>
       </div>
 
       <div>
         <p class="text-xs font-semibold uppercase tracking-wide text-white/50 mb-3">Liens</p>
         <ul class="space-y-2 text-sm">
-          <li><a href={URL_LINKEDIN_GFLUX} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-250">LinkedIn GFlux</a></li>
-          <li><a href={URL_LINKEDIN_FONDATEUR} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-250">LinkedIn du fondateur</a></li>
+          <li><a href={URL_LINKEDIN_GFLUX} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-250">LinkedIn</a></li>
           {footer.legalLinks.map((link) => (
             <li><a href={link.href} class="hover:text-white transition-colors duration-250">{link.label}</a></li>
           ))}
@@ -47,10 +43,8 @@ const showHosting = flags.showHostingMention || import.meta.env.DEV;
     </div>
 
     <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-      <p>© {currentYear} GFlux. Tous droits réservés.</p>
-      {showHosting && (
-        <p>{flags.showHostingMention ? `Hébergement : ${HEBERGEUR_SITE}` : `Hébergement : ${HEBERGEUR_SITE} (à valider)`}</p>
-      )}
+      <p>© {currentYear} {footer.legalMention}</p>
+      <p>{footer.hostingMention}</p>
     </div>
   </div>
 </footer>
