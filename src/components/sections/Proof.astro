@@ -1,4 +1,5 @@
 ---
+import RestitutionMock from "../visuals/RestitutionMock.astro";
 import { proof } from "../../config/siteContent";
 ---
 
@@ -14,8 +15,9 @@ import { proof } from "../../config/siteContent";
         <div class="bezel-shell bezel-fill">
           <div class="bezel-core p-7 md:p-10 flex flex-col">
             <h3 class="text-xl font-semibold mb-3 tracking-tight">{proof.partner.h3}</h3>
-            <p class="text-text-secondary leading-relaxed mb-10 max-w-measure">{proof.partner.text}</p>
-            <div class="mt-auto pt-6 border-t border-border-subtle">
+            <p class="text-text-secondary leading-relaxed mb-8 max-w-measure">{proof.partner.text}</p>
+            <RestitutionMock />
+            <div class="mt-8 pt-6 border-t border-border-subtle">
               <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-2">{proof.partner.resultLabel}</p>
               <p class="numeral text-3xl md:text-4xl leading-tight">{proof.partner.result}</p>
             </div>

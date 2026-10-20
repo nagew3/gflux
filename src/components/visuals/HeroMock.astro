@@ -1,0 +1,70 @@
+---
+// Illustration du produit : un mail client arrive, GFlux prépare la réponse,
+// un collaborateur valide. Contenu fictif, purement illustratif.
+import Icon from "../icons/Icon.astro";
+---
+
+<div
+  class="relative pb-10 lg:pt-36"
+  role="img"
+  aria-label="Exemple : un mail client reçu, une réponse préparée par GFlux, en attente de validation par un collaborateur."
+>
+  <!-- Mail reçu (arrière-plan) -->
+  <div class="relative lg:absolute lg:top-0 lg:left-0 lg:w-[80%] lg:-rotate-2 mb-4 lg:mb-0 rounded-[1.5rem] bg-bg-secondary border border-border-subtle shadow-subtle p-5">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-9 h-9 rounded-full bg-ink-light text-ink text-xs font-bold flex items-center justify-center">PM</span>
+      <div class="min-w-0">
+        <p class="text-[13px] font-semibold text-text-primary leading-tight">Paul Martin</p>
+        <p class="text-[11px] text-text-secondary leading-tight">SARL Atelier Martin · 08:42</p>
+      </div>
+      <Icon name="mail" class="w-4 h-4 text-text-secondary ml-auto" />
+    </div>
+    <p class="text-[13px] font-semibold text-text-primary mb-1">Où en est mon bilan ?</p>
+    <p class="text-[12px] text-text-secondary leading-relaxed">Bonjour, je dois voir ma banque la semaine prochaine. Savez-vous quand le bilan sera prêt ?</p>
+  </div>
+
+  <!-- Réponse préparée (premier plan) -->
+  <div class="relative lg:ml-14 bezel-shell shadow-lifted">
+    <div class="bezel-core p-5 md:p-6">
+      <div class="flex items-center justify-between gap-3 mb-4">
+        <p class="flex items-center gap-2 text-[13px] font-semibold text-text-primary">
+          <span class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center">
+            <Icon name="layers" class="w-3.5 h-3.5" />
+          </span>
+          Réponse préparée par GFlux
+        </p>
+        <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent bg-accent-light rounded-full px-2.5 py-1">Brouillon</span>
+      </div>
+
+      <div class="flex flex-wrap gap-1.5 mb-4">
+        <span class="text-[11px] font-medium text-text-secondary bg-ink-light rounded-full px-2.5 py-1">Dossier retrouvé</span>
+        <span class="text-[11px] font-medium text-text-secondary bg-ink-light rounded-full px-2.5 py-1">Bilan en cours</span>
+        <span class="text-[11px] font-medium text-accent-dark bg-accent-light rounded-full px-2.5 py-1">Pièce manquante : relevé de décembre</span>
+      </div>
+
+      <p class="text-[13px] text-text-primary leading-relaxed mb-5">
+        Bonjour Monsieur Martin,<br />
+        votre bilan est en cours de finalisation. Il nous manque encore votre relevé bancaire de décembre : dès réception, nous pourrons vous l'adresser avant votre rendez-vous.
+      </p>
+
+      <div class="flex items-center gap-2 pt-4 border-t border-border-subtle">
+        <span class="text-[12px] font-semibold text-text-secondary border border-border-subtle rounded-full px-4 py-2">Modifier</span>
+        <span class="flex items-center gap-1.5 text-[12px] font-semibold text-white bg-ink rounded-full px-4 py-2">
+          <Icon name="check" class="w-3.5 h-3.5" />
+          Valider et envoyer
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pastille de validation -->
+  <div class="relative lg:absolute lg:-bottom-1 lg:-left-2 mt-4 lg:mt-0 inline-flex items-center gap-3 bg-bg-secondary border border-border-subtle rounded-2xl shadow-lifted px-4 py-3 lg:rotate-[-3deg]">
+    <span class="flex-shrink-0 w-9 h-9 rounded-full bg-ink text-white flex items-center justify-center">
+      <Icon name="shield-check" class="w-4 h-4" />
+    </span>
+    <div>
+      <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-text-secondary">En attente de validation</p>
+      <p class="text-[13px] font-semibold text-text-primary">Un collaborateur relit avant l'envoi</p>
+    </div>
+  </div>
+</div>

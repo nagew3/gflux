@@ -1,5 +1,6 @@
 ---
 import Quote from "../Quote.astro";
+import ToolsGap from "../visuals/ToolsGap.astro";
 import { blockers } from "../../config/siteContent";
 ---
 
@@ -9,7 +10,8 @@ import { blockers } from "../../config/siteContent";
       <div class="lg:sticky lg:top-32 lg:self-start">
         <p class="kicker">02 · Blocages</p>
         <h2 class="text-section mb-5">{blockers.h2}</h2>
-        <p class="text-text-secondary leading-relaxed">{blockers.intro}</p>
+        <p class="text-text-secondary leading-relaxed mb-10">{blockers.intro}</p>
+        <ToolsGap />
       </div>
 
       <div>

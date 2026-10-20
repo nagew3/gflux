@@ -1,5 +1,6 @@
 ---
 import Icon from "../icons/Icon.astro";
+import HeroMock from "../visuals/HeroMock.astro";
 import { hero, CTA_LABEL, URL_CALENDLY_AUDIT } from "../../config/siteContent";
 
 const icons = ["layers", "shield-check", "lock"] as const;
@@ -7,7 +8,7 @@ const icons = ["layers", "shield-check", "lock"] as const;
 
 <section id="accueil" class="pt-28 pb-16 md:pt-40 md:pb-28">
   <div class="container-page">
-    <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.85fr)] gap-12 lg:gap-20 items-end">
+    <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.85fr)] gap-12 lg:gap-16 items-center">
       <div>
         <p class="eyebrow mb-5 sm:mb-7">{hero.eyebrow}</p>
         <h1 class="text-hero tracking-tight mb-6 sm:mb-7">{hero.h1}</h1>
@@ -21,18 +22,20 @@ const icons = ["layers", "shield-check", "lock"] as const;
         </div>
       </div>
 
-      <div class="reveal bezel-shell">
-        <ul class="bezel-core divide-y divide-border-subtle px-6 md:px-8">
-          {hero.markers.map((marker, i) => (
-            <li class="flex items-start gap-4 py-6">
-              <span class="flex-shrink-0 w-10 h-10 rounded-full bg-accent-light text-accent flex items-center justify-center">
-                <Icon name={icons[i]} class="w-[18px] h-[18px]" />
-              </span>
-              <span class="text-[15px] font-medium text-text-primary leading-snug pt-2">{marker}</span>
-            </li>
-          ))}
-        </ul>
+      <div class="reveal">
+        <HeroMock />
       </div>
     </div>
+
+    <ul class="grid md:grid-cols-3 gap-x-10 mt-14 md:mt-20 border-t border-border-subtle">
+      {hero.markers.map((marker, i) => (
+        <li class={`flex items-center gap-4 py-5 md:py-7 ${i > 0 ? "border-t md:border-t-0 border-border-subtle" : ""}`}>
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-accent-light text-accent flex items-center justify-center">
+            <Icon name={icons[i]} class="w-[18px] h-[18px]" />
+          </span>
+          <span class="text-[15px] font-medium text-text-primary leading-snug">{marker}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

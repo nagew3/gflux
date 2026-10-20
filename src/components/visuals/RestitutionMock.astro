@@ -1,0 +1,40 @@
+---
+// Illustration d'une restitution préparée : graphique + commentaire à relire.
+// Aucune donnée réelle : barres et lignes sont volontairement abstraites.
+import Icon from "../icons/Icon.astro";
+
+const bars = [38, 52, 46, 64, 58, 82];
+---
+
+<div class="rounded-[1.25rem] bg-ink-light border border-[rgba(15,26,43,0.06)] p-4 md:p-5" role="img" aria-label="Exemple de restitution préparée à partir de Pennylane, prête à être relue.">
+  <div class="flex items-center justify-between gap-3 mb-4">
+    <span class="flex items-center gap-1.5 text-[11px] font-semibold text-text-secondary bg-bg-secondary rounded-full px-2.5 py-1">
+      <Icon name="layers" class="w-3 h-3" />
+      Depuis Pennylane
+    </span>
+    <Icon name="arrow-right" class="w-4 h-4 text-text-secondary" />
+    <span class="flex items-center gap-1.5 text-[11px] font-semibold text-accent-dark bg-accent-light rounded-full px-2.5 py-1">
+      <Icon name="check" class="w-3 h-3" />
+      Restitution prête à relire
+    </span>
+  </div>
+
+  <div class="grid grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-4">
+    <div class="bg-bg-secondary rounded-xl p-4 flex items-end gap-2 h-36">
+      {bars.map((h, i) => (
+        <span
+          class={`flex-1 rounded-t-md ${i === bars.length - 1 ? "bg-accent" : "bg-[rgba(15,26,43,0.16)]"}`}
+          style={`height: ${h}%`}
+        ></span>
+      ))}
+    </div>
+    <div class="bg-bg-secondary rounded-xl p-4 flex flex-col gap-2.5 h-36">
+      <span class="h-2.5 w-2/3 rounded-full bg-[rgba(15,26,43,0.7)]"></span>
+      <span class="h-2 w-full rounded-full bg-[rgba(15,26,43,0.1)]"></span>
+      <span class="h-2 w-11/12 rounded-full bg-[rgba(15,26,43,0.1)]"></span>
+      <span class="h-2 w-4/5 rounded-full bg-[rgba(15,26,43,0.1)]"></span>
+      <span class="h-2 w-full rounded-full bg-[rgba(15,26,43,0.1)] mt-2"></span>
+      <span class="h-2 w-3/5 rounded-full bg-[rgba(15,26,43,0.1)]"></span>
+    </div>
+  </div>
+</div>
