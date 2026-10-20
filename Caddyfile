@@ -58,8 +58,4 @@ links.gflux.fr {
         handle @links {
                 reverse_proxy linkwarden:3000
         }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 351e3cc (modif caddy)
+
