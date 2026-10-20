@@ -39,7 +39,7 @@ import { proof } from "../../config/siteContent";
         <div class="bezel-shell">
           <div class="bezel-core p-7 md:p-10 grid md:grid-cols-[auto_minmax(0,1fr)] gap-8 md:gap-12 items-start">
             <div class="flex md:flex-col items-center md:items-start gap-5">
-              <div class="placeholder-block !rounded-full !p-0 w-24 h-24 md:w-28 md:h-28 flex-shrink-0 text-xs">{proof.founder.photo}</div>
+              <img src={proof.founder.photo} alt={proof.founder.name} width="112" height="112" loading="lazy" decoding="async" class="rounded-full object-cover w-24 h-24 md:w-28 md:h-28 flex-shrink-0" />
               <div>
                 <p class="font-semibold text-text-primary">{proof.founder.name}</p>
                 <p class="text-sm text-text-secondary">{proof.founder.role}</p>

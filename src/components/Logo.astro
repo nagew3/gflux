@@ -1,5 +1,5 @@
 ---
-// Placeholder [LOGO_GFLUX_SVG] : monogramme provisoire, à remplacer par le logo définitif.
+// Logo GFlux : monogramme PNG + nom. La variante "light" passe le monogramme en blanc (fond sombre).
 export interface Props {
   variant?: "dark" | "light";
   class?: string;
@@ -9,9 +9,13 @@ const textColor = variant === "light" ? "#F7F2E9" : "#0F1A2B";
 ---
 
 <span class={`inline-flex items-center gap-2 ${className}`}>
-  <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
-    <rect width="30" height="30" rx="9" fill="#E65100" />
-    <path d="M9.5 15a5.5 5.5 0 0 1 5.5-5.5h4.5v2.6h-4.5a2.9 2.9 0 0 0 0 5.8h1.8v-2.2h-2.2V13h4.9v7.5H15A5.5 5.5 0 0 1 9.5 15Z" fill="#F7F2E9" />
-  </svg>
+  <img
+    src="/logo-gflux.png"
+    alt=""
+    width="47"
+    height="30"
+    class="h-[30px] w-auto"
+    style={variant === "light" ? "filter:brightness(0) invert(1)" : undefined}
+  />
   <span class="font-bold text-lg tracking-tight" style={`color:${textColor}`}>GFlux</span>
 </span>

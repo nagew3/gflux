@@ -5,14 +5,14 @@
 export const CTA_LABEL = "Réserver mon audit offert";
 
 // Placeholders de conversion et coordonnées ---------------------------------
-export const URL_CALENDLY_AUDIT = "[URL_CALENDLY_AUDIT]";
-export const EMAIL_GFLUX = "[email]";
-export const TELEPHONE_GFLUX = "[06 XX XX XX XX]";
+export const URL_CALENDLY_AUDIT = "https://calendly.com/gawen-francois/appel-decouverte-gawen";
+export const EMAIL_GFLUX = "gawen.francois@gflux.fr";
+export const TELEPHONE_GFLUX = "06 51 21 17 96";
 export const ADRESSE_GFLUX = "Grenoble, France";
-export const URL_LINKEDIN_GFLUX = "[lien]";
+export const URL_LINKEDIN_GFLUX = "https://www.linkedin.com/in/gawen-f";
 export const RAISON_SOCIALE = "GFlux, entreprise individuelle";
-export const SIRET = "[XXX XXX XXX XXXXX]";
-export const URL_LOGO_GFLUX = "[URL_LOGO_GFLUX]";
+export const SIRET = "980 655 567 00033";
+export const URL_LOGO_GFLUX = "https://gflux.fr/logo-gflux.png";
 
 // Navigation ------------------------------------------------------------
 export const navLinks = [
@@ -46,8 +46,8 @@ export const hero = {
   ],
 };
 
-// Auteur des verbatims (taille du cabinet à compléter)
-const QUOTE_AUTHOR = "Expert-comptable, cabinet indépendant [taille]";
+// Auteur des verbatims
+const QUOTE_AUTHOR = "Expert-comptable, cabinet indépendant (exercice individuel)";
 
 // Section 2 - Problèmes -----------------------------------------------------
 export const problems = {
@@ -166,7 +166,7 @@ export const proof = {
     h3: "Un cabinet partenaire l'utilise déjà.",
     text: "Un cabinet indépendant partenaire utilise la Méthode GFlux pour préparer ses restitutions client.",
     resultLabel: "Résultat mesuré",
-    result: "[X heures → Y heures par restitution]",
+    result: "50 à 60 % de temps de préparation en moins sur la restitution client.",
   },
   survey: {
     h3: "16 experts-comptables nous ont décrit leurs journées.",
@@ -174,7 +174,7 @@ export const proof = {
   },
   founder: {
     h3: "Le fondateur",
-    photo: "[photo]",
+    photo: "/gawen-francois.jpg",
     name: "Gawen François",
     role: "Fondateur de GFlux",
     bio: "J'ai passé des journées dans un cabinet d'expertise comptable à décortiquer une restitution, clic par clic, du logiciel jusqu'au PowerPoint. Ce que j'en retiens : vos équipes savent faire, elles manquent de temps. Mon rôle est de récupérer les heures que la machine peut faire, pour les rendre au conseil.",
